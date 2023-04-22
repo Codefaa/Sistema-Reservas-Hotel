@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BE;
+using BLL;
+using Abstraccion;
 
 namespace UI
 {
@@ -18,14 +20,23 @@ namespace UI
         {
             InitializeComponent();
 
-            BEunLogin = new BELogin();
+            BEunLogin = new BEUser();
         }
-        BELogin BEunLogin;
+        BEUser BEunLogin;
         private void btnCrear_Click(object sender, EventArgs e)
         {
             try
             {
+                BLLUser BLLunUser = new BLLUser();
+                IUser user = new BEUser()
+                {
+                    Usuario = txtUsuario.Text,
+                    Contraseña = txtContraseña.Text,
+                    DNI = Convert.ToInt32(txtDNI.Text),
+                    Email = txtEmail.Text,
+                };
 
+                BLLunUser.Create(user);
             }
             catch(Exception ex)
             {

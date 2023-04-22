@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Abstraccion;
+
 namespace BE
 {
-    public class BELogin
+    public class BEUser : IUser
     {
         public string Usuario { get; set; }
         public string Contraseña { get; set; }
         public int DNI { get; set; }
-        public int Telefono { get; set; }
-        public BELogin()
+        public string Email { get; set; }
+        public BEUser()
         {
 
         }

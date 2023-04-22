@@ -33,7 +33,7 @@ namespace UI
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnCrear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -70,13 +70,13 @@ namespace UI
             this.txtDNI.TabIndex = 3;
             this.txtDNI.Text = "DNI";
             // 
-            // txtTelefono
+            // txtEmail
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(37, 168);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(203, 20);
-            this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.Text = "Telefono";
+            this.txtEmail.Location = new System.Drawing.Point(37, 168);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(203, 20);
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.Text = "Email";
             // 
             // btnCrear
             // 
@@ -94,7 +94,7 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(281, 273);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
@@ -112,7 +112,7 @@ namespace UI
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtDNI;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnCrear;
     }
 }

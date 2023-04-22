@@ -99,9 +99,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abstraccion\Abstraccion.csproj">
+      <Project>{9182ec05-c8af-4a9e-8e29-59efbca785fc}</Project>
+      <Name>Abstraccion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{6b5c3b29-cb49-4df4-8095-a4ad6054c0ec}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{1e61b6e8-b539-4fce-87a5-93c0bd948a17}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
