@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using BLL;
+using Abstraccion;
+using BE;
 namespace UI
 {
     public partial class frmIniciarSesion : Form
@@ -21,7 +24,19 @@ namespace UI
         {
             try
             {
+                BLLUser _BLLUser = new BLLUser();
+                IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text);
+                if(user != null)
+                {
+                    frmMenu menu = new frmMenu();
+                    this.Hide();
+                    menu.Show();
 
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña Incorrectos");
+                }
             }
             catch (Exception ex)
             {

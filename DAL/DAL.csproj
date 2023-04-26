@@ -49,6 +49,10 @@
       <Project>{9182ec05-c8af-4a9e-8e29-59efbca785fc}</Project>
       <Name>Abstraccion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{6b5c3b29-cb49-4df4-8095-a4ad6054c0ec}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="bak\BD SIGG.bak" />

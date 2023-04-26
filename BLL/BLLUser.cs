@@ -21,5 +21,36 @@ namespace BLL
             DALUser daluser = new DALUser();
             daluser.CreateUser(user);
         }
+        public IUser GetUser(string email)
+        {
+            DALUser daluser = new DALUser();
+            IUser r = daluser.GetUser(email);
+            return r;
+        }
+        public IUser Login(string email, string password)
+        {
+            try
+            {
+                DALUser daluser = new DALUser();
+
+                Encriptar encriptar = new Encriptar();
+                IUser user = GetUser(email);
+
+                if (user != null && user.Contraseña != encriptar.GenerarMD5(password)) {
+                    user = null;
+                }
+                if(user != null)
+                {
+                    daluser.savelog(user.id);
+                }
+                return user;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+
     }
 }

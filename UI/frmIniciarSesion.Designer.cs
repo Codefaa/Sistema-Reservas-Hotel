@@ -30,7 +30,7 @@ namespace UI
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -39,33 +39,37 @@ namespace UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 35);
+            this.label1.Location = new System.Drawing.Point(170, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido";
             // 
-            // txtUsuario
+            // txtEmail
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(35, 64);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(216, 20);
-            this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "Usuario";
+            this.txtEmail.Location = new System.Drawing.Point(52, 98);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(322, 26);
+            this.txtEmail.TabIndex = 1;
+            this.txtEmail.Text = "Email";
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(34, 102);
+            this.txtContraseña.Location = new System.Drawing.Point(51, 157);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(216, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(322, 26);
             this.txtContraseña.TabIndex = 2;
             this.txtContraseña.Text = "Contraseña";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(34, 138);
+            this.btnLogin.Location = new System.Drawing.Point(51, 212);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(215, 23);
+            this.btnLogin.Size = new System.Drawing.Size(322, 35);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -73,9 +77,10 @@ namespace UI
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(34, 178);
+            this.btnCrear.Location = new System.Drawing.Point(51, 274);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(215, 23);
+            this.btnCrear.Size = new System.Drawing.Size(322, 35);
             this.btnCrear.TabIndex = 4;
             this.btnCrear.Text = "Crear cuenta";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -83,14 +88,15 @@ namespace UI
             // 
             // frmIniciarSesion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 249);
+            this.ClientSize = new System.Drawing.Size(432, 383);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtContraseña);
-            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmIniciarSesion";
             this.Text = "LOGIN";
             this.ResumeLayout(false);
@@ -101,7 +107,7 @@ namespace UI
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCrear;

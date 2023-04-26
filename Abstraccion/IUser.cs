@@ -8,6 +8,7 @@ namespace Abstraccion
 {
     public interface IUser
     {
+        int id { get; set; }
         string Usuario { get; set; }
         string Contraseña { get; set; }
         int DNI { get; set; }
