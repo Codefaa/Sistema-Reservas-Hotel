@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Abstraccion;
+
 namespace Servicios
 {
     public class Sesion
@@ -30,6 +31,11 @@ namespace Servicios
         {
             _user = user;
         }
+        public void Logout()
+        {
+            _user = null;
+        }
+
 
 
     }

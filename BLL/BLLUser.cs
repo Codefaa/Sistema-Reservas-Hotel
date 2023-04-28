@@ -35,7 +35,7 @@ namespace BLL
 
                 Encriptar encriptar = new Encriptar();
                 IUser user = GetUser(email);
-
+                
                 if (user != null && user.Contraseña != encriptar.GenerarMD5(password)) {
                     user = null;
                 }
@@ -43,6 +43,7 @@ namespace BLL
                 {
                     daluser.savelog(user.id);
                 }
+                Sesion.Instance.Login(user);
                 return user;
             }
             catch(Exception e)

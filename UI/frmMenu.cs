@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Servicios;
 namespace UI
 {
     public partial class frmMenu : Form
@@ -15,6 +15,12 @@ namespace UI
         public frmMenu()
         {
             InitializeComponent();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Sesion.Instance.Logout();
+            Application.Restart();
         }
     }
 }
