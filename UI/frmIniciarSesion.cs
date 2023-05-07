@@ -25,7 +25,7 @@ namespace UI
             try
             {
                 BLLUser _BLLUser = new BLLUser();
-                IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text);
+                IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text, DateTime.Now);
                 if(user != null)
                 {
                     frmMenu menu = new frmMenu();

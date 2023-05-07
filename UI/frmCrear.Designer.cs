@@ -47,7 +47,7 @@ namespace UI
             this.btnCrear.Location = new System.Drawing.Point(80, 214);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(203, 23);
-            this.btnCrear.TabIndex = 5;
+            this.btnCrear.TabIndex = 4;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -57,7 +57,7 @@ namespace UI
             this.button1.Location = new System.Drawing.Point(80, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Iniciar sesion";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -68,7 +68,7 @@ namespace UI
             this.metroLabel1.Location = new System.Drawing.Point(80, 9);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(103, 19);
-            this.metroLabel1.TabIndex = 7;
+            this.metroLabel1.TabIndex = 10;
             this.metroLabel1.Text = "Registrar cuenta";
             // 
             // txtUsuario
@@ -97,7 +97,7 @@ namespace UI
             this.txtUsuario.SelectionStart = 0;
             this.txtUsuario.ShortcutsEnabled = true;
             this.txtUsuario.Size = new System.Drawing.Size(203, 23);
-            this.txtUsuario.TabIndex = 8;
+            this.txtUsuario.TabIndex = 0;
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.UseSelectable = true;
             this.txtUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -109,7 +109,7 @@ namespace UI
             // 
             // 
             this.txtEmail.CustomButton.Image = null;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(181, 1);
             this.txtEmail.CustomButton.Name = "";
             this.txtEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -129,7 +129,7 @@ namespace UI
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
             this.txtEmail.Size = new System.Drawing.Size(203, 23);
-            this.txtEmail.TabIndex = 9;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.Text = "Email";
             this.txtEmail.UseSelectable = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -161,7 +161,7 @@ namespace UI
             this.txtDNI.SelectionStart = 0;
             this.txtDNI.ShortcutsEnabled = true;
             this.txtDNI.Size = new System.Drawing.Size(203, 23);
-            this.txtDNI.TabIndex = 10;
+            this.txtDNI.TabIndex = 2;
             this.txtDNI.Text = "DNI";
             this.txtDNI.UseSelectable = true;
             this.txtDNI.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -193,7 +193,7 @@ namespace UI
             this.txtContraseña.SelectionStart = 0;
             this.txtContraseña.ShortcutsEnabled = true;
             this.txtContraseña.Size = new System.Drawing.Size(203, 23);
-            this.txtContraseña.TabIndex = 11;
+            this.txtContraseña.TabIndex = 1;
             this.txtContraseña.Text = "12345678";
             this.txtContraseña.UseSelectable = true;
             this.txtContraseña.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -205,7 +205,7 @@ namespace UI
             this.metroLabel2.Location = new System.Drawing.Point(3, 54);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel2.TabIndex = 12;
+            this.metroLabel2.TabIndex = 6;
             this.metroLabel2.Text = "Usuario";
             // 
             // metroLabel3
@@ -214,7 +214,7 @@ namespace UI
             this.metroLabel3.Location = new System.Drawing.Point(3, 93);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(75, 19);
-            this.metroLabel3.TabIndex = 13;
+            this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "Contraseña";
             // 
             // metroLabel4
@@ -223,7 +223,7 @@ namespace UI
             this.metroLabel4.Location = new System.Drawing.Point(3, 175);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel4.TabIndex = 14;
+            this.metroLabel4.TabIndex = 9;
             this.metroLabel4.Text = "Email";
             // 
             // metroLabel5
@@ -232,7 +232,7 @@ namespace UI
             this.metroLabel5.Location = new System.Drawing.Point(3, 134);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(31, 19);
-            this.metroLabel5.TabIndex = 15;
+            this.metroLabel5.TabIndex = 8;
             this.metroLabel5.Text = "DNI";
             // 
             // frmCrear
@@ -253,7 +253,7 @@ namespace UI
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCrear);
             this.Name = "frmCrear";
-            this.Text = "REGISTRO";
+            this.Text = "3";
             this.ResumeLayout(false);
             this.PerformLayout();
 

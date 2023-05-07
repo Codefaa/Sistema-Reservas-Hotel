@@ -13,13 +13,14 @@ namespace DAL
 {
     public class DALUser
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
         SqlTransaction transaccion;
-        public void savelog(int idUser)
+        public void savelog(int idUser, DateTime schedule)
         {
             string consulta = "InsertLoginLog";
             Hashtable Hdatos = new Hashtable();
             Hdatos.Add("@UserId", idUser);
+            Hdatos.Add("@Schedule", schedule);
 
             Escribir(consulta, Hdatos);
 

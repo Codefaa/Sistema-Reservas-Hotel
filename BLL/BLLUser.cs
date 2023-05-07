@@ -27,7 +27,7 @@ namespace BLL
             IUser r = daluser.GetUser(email);
             return r;
         }
-        public IUser Login(string email, string password)
+        public IUser Login(string email, string password, DateTime schedule)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace BLL
                 }
                 if(user != null)
                 {
-                    daluser.savelog(user.id);
+                    daluser.savelog(user.id, schedule);
                 }
                 Sesion.Instance.Login(user);
                 return user;

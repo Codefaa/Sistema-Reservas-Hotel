@@ -41,7 +41,7 @@ namespace UI
             this.btnLogin.Location = new System.Drawing.Point(34, 138);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(215, 23);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -51,7 +51,7 @@ namespace UI
             this.btnCrear.Location = new System.Drawing.Point(34, 178);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(215, 23);
-            this.btnCrear.TabIndex = 4;
+            this.btnCrear.TabIndex = 3;
             this.btnCrear.Text = "Crear cuenta";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -82,7 +82,7 @@ namespace UI
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
             this.txtEmail.Size = new System.Drawing.Size(216, 23);
-            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TabIndex = 0;
             this.txtEmail.Text = "Usuario";
             this.txtEmail.UseSelectable = true;
             this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -113,7 +113,7 @@ namespace UI
             this.txtContraseña.SelectionStart = 0;
             this.txtContraseña.ShortcutsEnabled = true;
             this.txtContraseña.Size = new System.Drawing.Size(216, 23);
-            this.txtContraseña.TabIndex = 6;
+            this.txtContraseña.TabIndex = 1;
             this.txtContraseña.UseSelectable = true;
             this.txtContraseña.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtContraseña.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -124,7 +124,7 @@ namespace UI
             this.Bienvenido.Location = new System.Drawing.Point(106, 9);
             this.Bienvenido.Name = "Bienvenido";
             this.Bienvenido.Size = new System.Drawing.Size(73, 19);
-            this.Bienvenido.TabIndex = 7;
+            this.Bienvenido.TabIndex = 4;
             this.Bienvenido.Text = "Bienvenido";
             // 
             // frmIniciarSesion
