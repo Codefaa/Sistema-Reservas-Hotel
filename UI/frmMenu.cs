@@ -22,5 +22,12 @@ namespace UI
             Sesion.Instance.Logout();
             Application.Restart();
         }
+
+
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sesion.Instance.Logout();
+            Application.Restart();
+        }
     }
 }

@@ -18,7 +18,17 @@ namespace BE
         public DateTime Horario { get; set; }
         public BEUser()
         {
-
+            _permisos = new List<BEComposite>();
         }
+
+        List<BEComposite> _permisos;
+        public List<BEComposite> Permisos
+        {
+            get
+            {
+                return _permisos;
+            }
+        }
+
     }
 }

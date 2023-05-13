@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BEComponente_compuesto.cs" />
+    <Compile Include="BEComposite.cs" />
     <Compile Include="BEUser.cs" />
+    <Compile Include="ComponenteSimple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
