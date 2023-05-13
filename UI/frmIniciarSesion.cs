@@ -28,7 +28,7 @@ namespace UI
                 IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text, DateTime.Now);
                 if(user != null)
                 {
-                    frmMenu menu = new frmMenu();
+                    frmPermisos menu = new frmPermisos();
                     this.Hide();
                     menu.Show();
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using BLL;
+
 namespace UI
 {
     public partial class frmPermisos : Form
@@ -23,12 +25,18 @@ namespace UI
         }
         private void cargarCOmbosPermisos()
         {
+            BLLComponentes BLLunComponente = new BLLComponentes();
             comboPermisos.DataSource = null;
+            comboPermisos.DataSource = BLLunComponente.getRoles();
+
+            comboPermisos.ValueMember = "Id";
+            comboPermisos.DisplayMember = "Nombre";
+            comboPermisos.Refresh();
         }
         
         private void frmPermisos_Load(object sender, EventArgs e)
         {
-
+            cargarCOmbosPermisos();
         }
     }
 }

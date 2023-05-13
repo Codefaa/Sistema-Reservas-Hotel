@@ -44,7 +44,7 @@
     <Compile Include="BEComponente_compuesto.cs" />
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEUser.cs" />
-    <Compile Include="ComponenteSimple.cs" />
+    <Compile Include="BEComponenteSimple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

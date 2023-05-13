@@ -12,7 +12,7 @@ namespace DAL
 {
     public class DALComposite
     {
-        public SqlConnection conexion = new SqlConnection();
+        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
 
         public DataTable Leer(string query, Hashtable hdatos)
         {
@@ -26,14 +26,8 @@ namespace DAL
 
             try
             {
-                SqlDataAdapter adaptador = new SqlDataAdapter();
-                if(hdatos != null)
-                {
-                    foreach (string dato in hdatos)
-                    {
-                        comando.Parameters.AddWithValue(dato, hdatos[dato]);
-                    }
-                }
+                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+
                 adaptador.Fill(table);
 
             }
@@ -51,9 +45,27 @@ namespace DAL
 
         public List<BEComposite> getRoles()
         {
-            string query = "";
-            Hashtable hdatos = new Hashtable();
-            hdatos.Add(@"");
+            List<BEComposite> listaComponentesSimples = new List<BEComposite>();
+            string query = "S_GetPermisos";
+            DataTable table = new DataTable();
+            table = Leer(query, null);
+
+            if(table.Rows.Count > 0)
+            {
+                foreach (DataRow fila in table.Rows)
+                {
+                    BEComposite unComponenteSimple = new BEComponenteSimple();
+                    unComponenteSimple.Id = Convert.ToInt32(fila["Id"]);
+                    unComponenteSimple.Nombre = fila["Nombre"].ToString();
+
+                    listaComponentesSimples.Add(unComponenteSimple);
+                }
+            }
+            else
+            {
+                listaComponentesSimples = null;
+            }
+            return listaComponentesSimples;
         }
 
     }
