@@ -8,9 +8,15 @@ namespace BE
 {
     public class BEComponenteSimple : BEComposite
     {
-        public int Codigo { get; set; }
-        public string Nombre { get; set; }
-        
+
+        public override IList<BEComposite> Hijos
+        {
+            get
+            {
+                return new List<BEComposite>();
+            }
+
+        }
         public override void AgregarHijo(BEComposite componente)
         {
             throw new NotImplementedException();

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +9,17 @@ namespace BE
     public abstract class BEComposite //Permisos
     {
         //https://gitlab.com/UAI-TCTD/usuario-patente-familia-con-composite-y-persistencia/-/blob/master/CompositePersistente.DAL/PermisosRepository.cs
-        public virtual int Id { get; set; }
-        public virtual string Nombre { get; set; }
+        public  int Id { get; set; }
+        public  string Nombre { get; set; }
+        public TipoPermiso Permiso { get; set; }
 
         public abstract void AgregarHijo(BEComposite componente);
         public abstract void EliminarComponente(BEComposite componente);
 
-        public List<BEComposite> ComponenteHijo = new List<BEComposite>(); 
-
+        public abstract IList<BEComposite> Hijos { get; }
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }
