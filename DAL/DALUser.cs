@@ -25,6 +25,33 @@ namespace DAL
             Escribir(consulta, Hdatos);
 
         }
+        public List<BEUser> GetAll()
+        {
+            conexion.Open();
+            var cmd = new SqlCommand();
+            cmd.Connection = conexion;
+
+            var sql = $@"select * from Users;";
+
+            cmd.CommandText = sql;
+
+            var reader = cmd.ExecuteReader();
+
+            var lista = new List<BEUser>();
+
+            while (reader.Read())
+            {
+                BEUser c = new BEUser();
+                c.id = reader.GetInt32(reader.GetOrdinal("Id"));
+                c.Usuario = reader.GetString(reader.GetOrdinal("Username"));
+                lista.Add(c);
+            }
+
+            reader.Close();
+            conexion.Close();
+
+            return lista;
+        }
         public IUser GetUser(string email)
         {
             string consulta = "GET_USER";

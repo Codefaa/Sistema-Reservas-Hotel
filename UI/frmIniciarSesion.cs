@@ -28,7 +28,7 @@ namespace UI
                 IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text, DateTime.Now);
                 if(user != null)
                 {
-                    frmPermisos menu = new frmPermisos();
+                    frmMenu menu = new frmMenu();
                     this.Hide();
                     menu.Show();
 
@@ -57,6 +57,11 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void frmIniciarSesion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

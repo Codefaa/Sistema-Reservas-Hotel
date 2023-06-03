@@ -31,13 +31,17 @@ namespace UI
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDeRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.familiasYPatentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
+            this.archivoToolStripMenuItem,
+            this.gestionDeRolesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(595, 24);
@@ -50,6 +54,29 @@ namespace UI
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.archivoToolStripMenuItem.Text = "Cerrar Sesion";
             this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
+            // 
+            // gestionDeRolesToolStripMenuItem
+            // 
+            this.gestionDeRolesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.familiasYPatentesToolStripMenuItem,
+            this.asignarRolesToolStripMenuItem});
+            this.gestionDeRolesToolStripMenuItem.Name = "gestionDeRolesToolStripMenuItem";
+            this.gestionDeRolesToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.gestionDeRolesToolStripMenuItem.Text = "Gestion de roles";
+            // 
+            // familiasYPatentesToolStripMenuItem
+            // 
+            this.familiasYPatentesToolStripMenuItem.Name = "familiasYPatentesToolStripMenuItem";
+            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.familiasYPatentesToolStripMenuItem.Text = "Familias y patentes";
+            this.familiasYPatentesToolStripMenuItem.Click += new System.EventHandler(this.familiasYPatentesToolStripMenuItem_Click);
+            // 
+            // asignarRolesToolStripMenuItem
+            // 
+            this.asignarRolesToolStripMenuItem.Name = "asignarRolesToolStripMenuItem";
+            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarRolesToolStripMenuItem.Text = "Asignar roles";
+            this.asignarRolesToolStripMenuItem.Click += new System.EventHandler(this.asignarRolesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -71,5 +98,8 @@ namespace UI
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDeRolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem familiasYPatentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignarRolesToolStripMenuItem;
     }
 }

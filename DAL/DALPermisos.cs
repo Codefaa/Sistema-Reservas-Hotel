@@ -137,7 +137,7 @@ namespace DAL
                 cmd.Connection = cnn;
 
 
-                var sql = $@"delete from permiso_permiso where id_permiso_padre=@id;       ";
+                var sql = $@"delete from permiso_permiso where Id_PermisoPadre=@id;       ";
 
                 cmd.CommandText = sql;
                 cmd.Parameters.Add(new SqlParameter("id", c.Id));
@@ -149,7 +149,7 @@ namespace DAL
                     cmd.Connection = cnn;
 
 
-                    sql = $@"insert into permiso_permiso (id_permiso_padre,id_permiso_hijo) values (@id_permiso_padre,@id_permiso_hijo) ";
+                    sql = $@"insert into permiso_permiso (Id_PermisoPadre,Id_PermisoHijo) values (@id_permiso_padre,@id_permiso_hijo) ";
 
                     cmd.CommandText = sql;
                     cmd.Parameters.Add(new SqlParameter("id_permiso_padre", c.Id));
@@ -165,7 +165,6 @@ namespace DAL
                 throw;
             }
         }
-
         public IList<BEComponente_compuesto> GetAllCompuestos()
         {
 
@@ -217,22 +216,22 @@ namespace DAL
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
             cs.DataSource = ".";
-            cs.InitialCatalog = "upf";
+            cs.InitialCatalog = "BD SIGG";
             var cnn = new SqlConnection(cs.ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
 
             var sql = $@"with recursivo as (
-                        select sp2.id_permiso_padre, sp2.id_permiso_hijo  from permiso_permiso SP2
-                        where sp2.id_permiso_padre {where} --acá se va variando la familia que busco
+                        select sp2.Id_PermisoPadre, sp2.Id_PermisoHijo  from Permiso_Permiso sp2
+                        where sp2.Id_PermisoPadre {where}
                         UNION ALL 
-                        select sp.id_permiso_padre, sp.id_permiso_hijo from permiso_permiso sp 
-                        inner join recursivo r on r.id_permiso_hijo= sp.id_permiso_padre
+                        select sp.Id_PermisoPadre, sp.Id_PermisoHijo from Permiso_Permiso sp 
+                        inner join recursivo r on r.Id_PermisoHijo= sp.Id_PermisoPadre
                         )
-                        select r.id_permiso_padre,r.id_permiso_hijo,p.id,p.nombre, p.permiso
+                        select r.Id_PermisoPadre,r.Id_PermisoHijo,p.id,p.nombre, p.permiso
                         from recursivo r 
-                        inner join permiso p on r.id_permiso_hijo = p.id 
+                        inner join permiso p on r.Id_PermisoHijo = p.id 
 						
                         ";
 
@@ -245,9 +244,9 @@ namespace DAL
             while (reader.Read())
             {
                 int id_padre = 0;
-                if (reader["id_permiso_padre"] != DBNull.Value)
+                if (reader["id_PermisoPadre"] != DBNull.Value)
                 {
-                    id_padre = reader.GetInt32(reader.GetOrdinal("id_permiso_padre"));
+                    id_padre = reader.GetInt32(reader.GetOrdinal("id_PermisoPadre"));
                 }
 
                 var id = reader.GetInt32(reader.GetOrdinal("id"));
@@ -326,31 +325,58 @@ namespace DAL
                 familia.AgregarHijo(item);
             }
         }
+        public void FillUserComponents(BEUser u)
+        {
 
-        //public List<BEComposite> getRoles()
-        //{
-        //    List<BEComposite> listaComponentesSimples = new List<BEComposite>();
-        //    string query = "S_GetPermisos";
-        //    DataTable table = new DataTable();
-        //    table = Leer(query, null);
+            var cnn = new SqlConnection(GetConnectionString());
+            cnn.Open();
 
-        //    if(table.Rows.Count > 0)
-        //    {
-        //        foreach (DataRow fila in table.Rows)
-        //        {
-        //            BEComposite unComponenteSimple = new BEComponenteSimple();
-        //            unComponenteSimple.Id = Convert.ToInt32(fila["Id"]);
-        //            unComponenteSimple.Nombre = fila["Nombre"].ToString();
+            var cmd2 = new SqlCommand();
+            cmd2.Connection = cnn;
+            cmd2.CommandText = $@"select p.* from User_Permiso up inner join permiso p on up.idPermiso=p.id where Id=@id;";
+            cmd2.Parameters.AddWithValue("id", u.id);
 
-        //            listaComponentesSimples.Add(unComponenteSimple);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        listaComponentesSimples = null;
-        //    }
-        //    return listaComponentesSimples;
-        //}
+            var reader = cmd2.ExecuteReader();
+            u.Permisos.Clear();
+            while (reader.Read())
+            {
 
+                var idp = reader.GetInt32(reader.GetOrdinal("Id"));
+                var nombrep = reader.GetString(reader.GetOrdinal("Username"));
+
+                var permisop = String.Empty;
+                if (reader["permiso"] != DBNull.Value)
+                    permisop = reader.GetString(reader.GetOrdinal("permiso"));
+
+                BEComposite c1;
+                if (!String.IsNullOrEmpty(permisop))
+                {
+                    c1 = new BEComponenteSimple();
+                    c1.Id = idp;
+                    c1.Nombre = nombrep;
+                    c1.Permiso = (TipoPermiso)Enum.Parse(typeof(TipoPermiso), permisop);
+                    u.Permisos.Add(c1);
+                }
+                else
+                {
+                    c1 = new BEComponente_compuesto();
+                    c1.Id = idp;
+                    c1.Nombre = nombrep;
+
+                    var f = GetAll("=" + idp);
+
+                    foreach (var familia in f)
+                    {
+                        c1.AgregarHijo(familia);
+                    }
+                    u.Permisos.Add(c1);
+                }
+
+
+
+            }
+            reader.Close();
+
+        } 
     }
 }

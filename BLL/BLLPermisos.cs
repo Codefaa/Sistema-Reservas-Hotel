@@ -63,6 +63,12 @@ namespace BLL
         {
             _permisos.FillFamilyComponents(familia);
         }
+        public void FillUserComponents(BEUser u)
+        {
+            _permisos.FillUserComponents(u);
+
+        }
+
 
     }
 }

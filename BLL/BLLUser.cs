@@ -13,7 +13,9 @@ namespace BLL
 {
     public class BLLUser
     {
-        Encriptar encriptar = new Encriptar();
+        Encriptar encriptar = new Encriptar(); 
+        DALUser daluser = new DALUser();
+
         public void Create(IUser user)
         {
             user.Contraseña = encriptar.GenerarMD5(user.Contraseña);
@@ -21,12 +23,17 @@ namespace BLL
             DALUser daluser = new DALUser();
             daluser.CreateUser(user);
         }
+
+        public List<BEUser> getAllUsers(){
+            return daluser.GetAll();
+        }
+
         public IUser GetUser(string email)
         {
-            DALUser daluser = new DALUser();
             IUser r = daluser.GetUser(email);
             return r;
         }
+
         public IUser Login(string email, string password, DateTime schedule)
         {
             try

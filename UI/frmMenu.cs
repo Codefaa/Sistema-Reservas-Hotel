@@ -29,5 +29,19 @@ namespace UI
             Sesion.Instance.Logout();
             Application.Restart();
         }
+
+        private void familiasYPatentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPermisos frm = new frmPermisos();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void asignarRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios_roles frm = new frmUsuarios_roles();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

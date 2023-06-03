@@ -29,6 +29,9 @@ namespace BE
                 return _permisos;
             }
         }
-
+        public override string ToString()
+        {
+            return Usuario;
+        }
     }
 }
