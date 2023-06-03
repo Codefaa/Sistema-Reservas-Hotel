@@ -33,7 +33,10 @@ namespace BLL
             IUser r = daluser.GetUser(email);
             return r;
         }
-
+        public void GuardarPermisos(BEUser u)
+        {
+            daluser.GuardarPermisos(u);
+        }
         public IUser Login(string email, string password, DateTime schedule)
         {
             try

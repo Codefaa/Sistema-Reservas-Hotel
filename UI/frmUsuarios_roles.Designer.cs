@@ -53,6 +53,7 @@ namespace UI
             this.cmdGuardarFamilia.TabIndex = 10;
             this.cmdGuardarFamilia.Text = "Guardar cambios";
             this.cmdGuardarFamilia.UseVisualStyleBackColor = true;
+            this.cmdGuardarFamilia.Click += new System.EventHandler(this.cmdGuardarFamilia_Click);
             // 
             // treeView1
             // 

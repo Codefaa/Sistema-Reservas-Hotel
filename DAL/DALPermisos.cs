@@ -333,7 +333,7 @@ namespace DAL
 
             var cmd2 = new SqlCommand();
             cmd2.Connection = cnn;
-            cmd2.CommandText = $@"select p.* from User_Permiso up inner join permiso p on up.idPermiso=p.id where Id=@id;";
+            cmd2.CommandText = $@"select p.* from User_Permiso up inner join Permiso p on up.idPermiso=p.id where Id=@id;";
             cmd2.Parameters.AddWithValue("id", u.id);
 
             var reader = cmd2.ExecuteReader();

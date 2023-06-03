@@ -151,5 +151,38 @@ namespace DAL
 
             Escribir(consulta, Hdatos);
         }
+        public void GuardarPermisos(BEUser u)
+        {
+
+            try
+            {
+                conexion.Open();
+
+                var cmd = new SqlCommand();
+                cmd.Connection = conexion;
+
+                cmd.CommandText = $@"delete from User_Permiso where IdUser=@id;";
+                cmd.Parameters.Add(new SqlParameter("id", u.id));
+                cmd.ExecuteNonQuery();
+
+                foreach (var item in u.Permisos)
+                {
+                    cmd = new SqlCommand();
+                    cmd.Connection = conexion;
+
+                    cmd.CommandText = $@"insert into User_Permiso (IdUser,IdPermiso) values (@id_usuario,@id_permiso) "; ;
+                    cmd.Parameters.Add(new SqlParameter("id_usuario", u.id));
+                    cmd.Parameters.Add(new SqlParameter("id_permiso", item.Id));
+
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

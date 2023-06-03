@@ -107,6 +107,49 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (tmp != null)
+            {
+                var flia = (BEComponente_compuesto)cboFamilias.SelectedItem;
+                if (flia != null)
+                {
+                    var esta = false;
+                    foreach (var item in tmp.Permisos)
+                    {
+                        if (bllPermisos.Existe(item, flia.Id))
+                        {
+                            esta = true;
+                        }
+                    }
+
+                    if (esta)
+                        MessageBox.Show("El usuario ya tiene la familia indicada");
+                    else
+                    {
+                        {
+                            bllPermisos.FillFamilyComponents(flia);
+
+                            tmp.Permisos.Add(flia);
+                            MostrarPermisos(tmp);
+                        }
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Seleccione un usuario");
+        }
+
+        private void cmdGuardarFamilia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bllUser.GuardarPermisos(tmp);
+                MessageBox.Show("Usuario guardado correctamente");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al guardar el usuario");
+            }
         }
     }
 }
