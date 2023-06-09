@@ -156,6 +156,7 @@ namespace DAL
 
             try
             {
+                conexion.Close();
                 conexion.Open();
 
                 var cmd = new SqlCommand();

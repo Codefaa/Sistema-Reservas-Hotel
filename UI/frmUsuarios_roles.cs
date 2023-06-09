@@ -65,6 +65,7 @@ namespace UI
         {
             seleccion = (BEUser)this.cboUsuarios.SelectedItem;
 
+            tmp = new BEUser();
             tmp.id = seleccion.id;
             tmp.Usuario= seleccion.Usuario;
             bllPermisos.FillUserComponents(tmp);
