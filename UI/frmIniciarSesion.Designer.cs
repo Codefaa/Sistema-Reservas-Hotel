@@ -140,7 +140,6 @@ namespace UI
             this.Controls.Add(this.btnLogin);
             this.Name = "frmIniciarSesion";
             this.Text = "LOGIN";
-            this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

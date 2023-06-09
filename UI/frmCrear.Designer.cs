@@ -253,7 +253,7 @@ namespace UI
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCrear);
             this.Name = "frmCrear";
-            this.Text = "3";
+            this.Text = "frmCrear";
             this.ResumeLayout(false);
             this.PerformLayout();
 

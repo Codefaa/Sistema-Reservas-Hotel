@@ -50,6 +50,14 @@
       <Project>{9182ec05-c8af-4a9e-8e29-59efbca785fc}</Project>
       <Name>Abstraccion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{6b5c3b29-cb49-4df4-8095-a4ad6054c0ec}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9f521f78-8b40-4289-bb73-465e6f052ff4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

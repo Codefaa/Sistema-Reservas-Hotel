@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using Abstraccion;
 using BLL;
-using Abstraccion;
-using BE;
+using System;
+using System.Windows.Forms;
 namespace UI
 {
     public partial class frmIniciarSesion : Form
@@ -25,13 +16,12 @@ namespace UI
             try
             {
                 BLLUser _BLLUser = new BLLUser();
-                IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text, DateTime.Now);
-                if(user != null)
+                IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text);
+                if (user != null)
                 {
                     frmMenu menu = new frmMenu();
-                    this.Hide();
                     menu.Show();
-
+                    this.Hide();
                 }
                 else
                 {
@@ -48,20 +38,14 @@ namespace UI
         {
             try
             {
+                frmCrear crear = new frmCrear();
+                crear.Show();
                 this.Hide();
-
-                frmCrear abrir = new frmCrear();
-                abrir.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void frmIniciarSesion_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

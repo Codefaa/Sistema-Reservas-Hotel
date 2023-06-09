@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IIdioma.cs" />
+    <Compile Include="IObservado.cs" />
+    <Compile Include="IObservador.cs" />
+    <Compile Include="IPalabra.cs" />
+    <Compile Include="ITraduccion.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

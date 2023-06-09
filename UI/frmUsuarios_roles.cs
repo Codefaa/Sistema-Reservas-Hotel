@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Abstraccion;
+using Servicios;
 using BLL;
 using BE;
 namespace UI
 {
-    public partial class frmUsuarios_roles : Form
+    public partial class frmUsuarios_roles : Form, IObservador
     {
         BLLPermisos bllPermisos;
         BLLUser bllUser;
@@ -30,11 +33,6 @@ namespace UI
             this.cboPatentes.DataSource = bllPermisos.GetAllPatentes();
         }
 
-        private void frmUsuarios_roles_Load(object sender, EventArgs e)
-        {
-
-
-        }
         void LlenarTreeView(TreeNode padre, BEComposite c)
         {
             TreeNode hijo = new TreeNode(c.Nombre);
@@ -152,5 +150,31 @@ namespace UI
                 MessageBox.Show("Error al guardar el usuario");
             }
         }
+
+
+        #region Idioma 
+        Sesion sesion = Sesion.Instance;
+        private void frmUsuarios_roles_Load(object sender, EventArgs e)
+        {
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
+        }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (grpPatentes.Controls.Count > 0)
+                {
+                    foreach (Control item2 in grpPatentes.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

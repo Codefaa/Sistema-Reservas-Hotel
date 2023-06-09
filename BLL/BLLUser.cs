@@ -20,48 +20,43 @@ namespace BLL
         {
             user.Contraseña = encriptar.GenerarMD5(user.Contraseña);
 
-            DALUser daluser = new DALUser();
             daluser.CreateUser(user);
         }
+        public IUser Login(string email, string password)
+        {
+            try
+            {
+                IUser user = GetUser(email);
 
-        public List<BEUser> getAllUsers(){
-            return daluser.GetAll();
+                if (user != null && user.Contraseña != encriptar.GenerarMD5(password))
+                {
+                    user = null;
+                }
+                if (user != null)
+                {
+                    daluser.savelog(user.id, user.Usuario);
+                }
+                Sesion.Instance.Login(user);
+                return user;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
-
         public IUser GetUser(string email)
         {
             IUser r = daluser.GetUser(email);
             return r;
         }
+
+        public List<BEUser> getAllUsers()
+        {
+            return daluser.GetAll();
+        }
         public void GuardarPermisos(BEUser u)
         {
             daluser.GuardarPermisos(u);
         }
-        public IUser Login(string email, string password, DateTime schedule)
-        {
-            try
-            {
-                DALUser daluser = new DALUser();
-
-                Encriptar encriptar = new Encriptar();
-                IUser user = GetUser(email);
-                
-                if (user != null && user.Contraseña != encriptar.GenerarMD5(password)) {
-                    user = null;
-                }
-                if(user != null)
-                {
-                    daluser.savelog(user.id, schedule);
-                }
-                Sesion.Instance.Login(user);
-                return user;
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-        }
-
-
     }
 }

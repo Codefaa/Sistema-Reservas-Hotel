@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Servicios;
+using Abstraccion;
 using BE;
 using BLL;
 
 namespace UI
 {
-    public partial class frmPermisos : Form
+    public partial class frmPermisos : Form, IObservador
     {
         BLLPermisos BLLPermisos;
         BEComponente_compuesto seleccion;
@@ -60,11 +63,6 @@ namespace UI
 
         }
        
-        
-        private void frmPermisos_Load(object sender, EventArgs e)
-        {
-            LlenarPatentesFamilias();
-        }
         private void LlenarPatentesFamilias()
         {
 
@@ -186,5 +184,47 @@ namespace UI
                 MessageBox.Show("Error al guardar la familia");
             }
         }
+
+
+        #region Idioma
+        Sesion sesion = Sesion.Instance;
+        private void frmPermisos_Load(object sender, EventArgs e)
+        {
+            LlenarPatentesFamilias();
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
+        }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupPatentes.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupPatentes.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+                if (groupFamilias.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupFamilias.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+                if (groupConfigurarFamilias.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupConfigurarFamilias.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

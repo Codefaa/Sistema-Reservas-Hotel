@@ -13,6 +13,5 @@ namespace Abstraccion
         string Contraseña { get; set; }
         int DNI { get; set; }
         string Email { get; set; }
-        DateTime Horario { get; set; }
     }
 }

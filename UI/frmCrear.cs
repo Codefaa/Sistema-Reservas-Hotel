@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
+﻿using Abstraccion;
 using BE;
 using BLL;
-using Abstraccion;
+using System;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -27,8 +20,10 @@ namespace UI
         {
             try
             {
-                if(Regex.IsMatch(txtDNI.Text, "^([0-9]+$)") == true) {
-                    if (Regex.IsMatch(txtEmail.Text, "^([\\w-]+\\.)*?[\\w-]+@[\\w-]+\\.([\\w-]+\\.)*?[\\w]+$") == true) {
+                if (Regex.IsMatch(txtDNI.Text, "^([0-9]+$)") == true)
+                {
+                    if (Regex.IsMatch(txtEmail.Text, "^([\\w-]+\\.)*?[\\w-]+@[\\w-]+\\.([\\w-]+\\.)*?[\\w]+$") == true)
+                    {
                         BLLUser BLLunUser = new BLLUser();
                         IUser user = new BEUser()
                         {
@@ -54,7 +49,7 @@ namespace UI
                     MessageBox.Show("Error al iniciar sesion, ingrese dni valido");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

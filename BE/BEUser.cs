@@ -15,7 +15,6 @@ namespace BE
         public string Contraseña { get; set; }
         public int DNI { get; set; }
         public string Email { get; set; }
-        public DateTime Horario { get; set; }
         public BEUser()
         {
             _permisos = new List<BEComposite>();
