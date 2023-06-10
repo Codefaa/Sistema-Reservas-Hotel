@@ -13,7 +13,7 @@ namespace DAL
 {
     public class DALUser
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
         SqlTransaction transaccion;
 
         public DataTable Leer(string query, Hashtable hdatos)
@@ -136,16 +136,6 @@ namespace DAL
             }
 
             return user;
-        }
-        public void savelog(int idUser, string usuario)
-        {
-            string consulta = "InsertLoginLog";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@UserId", idUser);
-            Hdatos.Add("@Username", usuario);
-            Hdatos.Add("@Schedule", DateTime.Now);
-
-            Escribir(consulta, Hdatos);
         }
 
         public List<BEUser> GetAll()

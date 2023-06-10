@@ -41,7 +41,7 @@ namespace Servicios
 
         public void RegistrarObservador(IObservador observador)
         {
-            if (!ObservadoresRegistrados.Contains(observador))
+            if (ObservadoresRegistrados.Count  == 0)
             {
                 ObservadoresRegistrados.Add(observador);
             }

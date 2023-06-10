@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL Bitacora.cs" />
     <Compile Include="DALObserver.cs" />
     <Compile Include="DALPermisos.cs" />
     <Compile Include="DALUser.cs" />
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bak\bakclase12-5" />
+    <None Include="bak\bakk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

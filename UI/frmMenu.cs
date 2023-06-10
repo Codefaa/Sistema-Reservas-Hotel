@@ -27,7 +27,12 @@ namespace UI
             Sesion.Instance.Logout();
             Application.Restart();
         }
-
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBitacora abrir = new frmBitacora();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
         private void familiasYPatentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPermisos frm = new frmPermisos();

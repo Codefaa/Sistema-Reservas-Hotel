@@ -36,6 +36,7 @@ namespace UI
             this.asignarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@ namespace UI
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
+            this.bitacoraToolStripMenuItem,
             this.gestionDeRolesToolStripMenuItem,
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -72,7 +74,7 @@ namespace UI
             // familiasYPatentesToolStripMenuItem
             // 
             this.familiasYPatentesToolStripMenuItem.Name = "familiasYPatentesToolStripMenuItem";
-            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.familiasYPatentesToolStripMenuItem.Tag = "FamiliasYPatentes";
             this.familiasYPatentesToolStripMenuItem.Text = "Familias y patentes";
             this.familiasYPatentesToolStripMenuItem.Click += new System.EventHandler(this.familiasYPatentesToolStripMenuItem_Click);
@@ -80,7 +82,7 @@ namespace UI
             // asignarRolesToolStripMenuItem
             // 
             this.asignarRolesToolStripMenuItem.Name = "asignarRolesToolStripMenuItem";
-            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.asignarRolesToolStripMenuItem.Tag = "AsignarRoles";
             this.asignarRolesToolStripMenuItem.Text = "Asignar roles";
             this.asignarRolesToolStripMenuItem.Click += new System.EventHandler(this.asignarRolesToolStripMenuItem_Click);
@@ -97,10 +99,18 @@ namespace UI
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
-            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.idiomaToolStripMenuItem.Tag = "Idioma";
             this.idiomaToolStripMenuItem.Text = "Idioma";
             this.idiomaToolStripMenuItem.Click += new System.EventHandler(this.idiomaToolStripMenuItem_Click);
+            // 
+            // bitacoraToolStripMenuItem
+            // 
+            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.bitacoraToolStripMenuItem.Tag = "Bitacora";
+            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -128,5 +138,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem asignarRolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
     }
 }

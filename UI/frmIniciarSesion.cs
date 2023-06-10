@@ -15,10 +15,16 @@ namespace UI
         {
             try
             {
+                BLLBitacora _BLLBitacora = new BLLBitacora();
                 BLLUser _BLLUser = new BLLUser();
+
                 IUser user = _BLLUser.Login(txtEmail.Text, txtContraseña.Text);
+
+
                 if (user != null)
                 {
+                    _BLLBitacora.insertBitacora(user.Usuario, "Sesion", "Iniciar Sesion");
+
                     frmMenu menu = new frmMenu();
                     menu.Show();
                     this.Hide();

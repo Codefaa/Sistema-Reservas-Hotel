@@ -15,6 +15,7 @@ namespace BLL
     {
         Encriptar encriptar = new Encriptar(); 
         DALUser daluser = new DALUser();
+       
 
         public void Create(IUser user)
         {
@@ -32,10 +33,7 @@ namespace BLL
                 {
                     user = null;
                 }
-                if (user != null)
-                {
-                    daluser.savelog(user.id, user.Usuario);
-                }
+
                 Sesion.Instance.Login(user);
                 return user;
             }
