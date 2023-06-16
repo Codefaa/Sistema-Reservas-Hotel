@@ -41,12 +41,13 @@ namespace UI
             this.cmdConfigurar = new System.Windows.Forms.Button();
             this.cboUsuarios = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.grpPatentes.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdGuardarFamilia
             // 
-            this.cmdGuardarFamilia.Location = new System.Drawing.Point(373, 238);
+            this.cmdGuardarFamilia.Location = new System.Drawing.Point(283, 237);
             this.cmdGuardarFamilia.Margin = new System.Windows.Forms.Padding(2);
             this.cmdGuardarFamilia.Name = "cmdGuardarFamilia";
             this.cmdGuardarFamilia.Size = new System.Drawing.Size(110, 23);
@@ -64,6 +65,7 @@ namespace UI
             this.treeView1.Size = new System.Drawing.Size(276, 213);
             this.treeView1.TabIndex = 9;
             this.treeView1.Tag = "listCambios";
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // grpPatentes
             // 
@@ -188,11 +190,24 @@ namespace UI
             this.label2.Tag = "lbTodoslosusuarios";
             this.label2.Text = "Todos los usuarios";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(449, 238);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(110, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Tag = "btnGuardarCambios";
+            this.button3.Text = "Sacar Rol";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // frmUsuarios_roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 285);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.cmdGuardarFamilia);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.grpPatentes);
@@ -219,5 +234,6 @@ namespace UI
         private System.Windows.Forms.Button cmdConfigurar;
         private System.Windows.Forms.ComboBox cboUsuarios;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button3;
     }
 }
