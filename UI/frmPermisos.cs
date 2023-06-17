@@ -19,6 +19,7 @@ namespace UI
     {
         BLLPermisos BLLPermisos;
         BEComponente_compuesto seleccion;
+        BEComposite seleccionTree;
 
         public frmPermisos()
         {
@@ -126,7 +127,7 @@ namespace UI
         void MostrarEnTreeView(TreeNode tn, BEComposite c)
         {
             TreeNode n = new TreeNode(c.Nombre);
-            tn.Tag = c;
+            n.Tag = c;
             tn.Nodes.Add(n);
             if (c.Hijos != null)
                 foreach (var item in c.Hijos)
@@ -226,5 +227,26 @@ namespace UI
             }
         }
         #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var buscar = seleccion.Hijos.ToList().Find(x => x.Id == seleccionTree.Id);
+            var listActual = seleccion.Hijos.ToList();
+            listActual.Remove(buscar);
+
+            seleccion.VaciarHijos();
+            foreach (var item in listActual)
+            {
+                seleccion.AgregarHijo(item);
+            }
+ 
+            //seleccion.Hijos.Remove(buscar);
+            MostrarFamilia(false);
+        }
+
+        private void treeConfigurarFamilia_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            seleccionTree = (BEComposite)e.Node.Tag;
+        }
     }
 }

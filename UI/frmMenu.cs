@@ -61,12 +61,17 @@ namespace UI
         private void frmMenu_Load(object sender, EventArgs e)
         {
             BLLUser bllU = new BLLUser();
-            if (bllU.validarDigito()) { }
-
-            BLLIdioma BLLunIdioma = new BLLIdioma();
-            Sesion.Idioma = BLLunIdioma.GenerarDiccionarios(Sesion.Idioma);
-            sesion.RegistrarObservador(this);
-            sesion.ActualizarObservadores(Sesion.Idioma);
+            if (bllU.validarDigito()) {
+                BLLIdioma BLLunIdioma = new BLLIdioma();
+                Sesion.Idioma = BLLunIdioma.GenerarDiccionarios(Sesion.Idioma);
+                sesion.RegistrarObservador(this);
+                sesion.ActualizarObservadores(Sesion.Idioma);
+            }
+            else
+            {
+                
+            }
+           
         }
         public void Actualizar(IIdioma idiomaObservado)
         {

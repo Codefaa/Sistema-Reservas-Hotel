@@ -185,16 +185,10 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (seleccionTree == null)
-            {
-                foreach (BEComposite permiso in nodo.Hijos)
-                {
-                    if (permiso.Id == seleccionTree.Id)
-                    {
+            var buscar = tmp.Permisos.Find(x => x.Id == seleccionTree.Id);
 
-                    }
-                }
-            }
+            tmp.Permisos.Remove(buscar);
+            MostrarPermisos(tmp);
         }
 
         private void removerNodo(BEComposite nodo)

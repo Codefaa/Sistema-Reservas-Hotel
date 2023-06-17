@@ -18,7 +18,12 @@ namespace BLL
        
         public bool validarDigito()
         {
-            return daluser.validarDigito();
+            string digito = null;
+            foreach (BEUser user in daluser.GetAll())
+            {
+                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            }
+            return daluser.validarDigito(digito);
         }
         public void Create(IUser user)
         {

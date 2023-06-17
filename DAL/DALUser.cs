@@ -56,10 +56,28 @@ namespace DAL
 
             return table;
         }
-        public bool validarDigito()
+        public bool validarDigito(string digito)
         {
-return true
+            if(getDigitoTabla() == digito)
+            {
+                return true;
+            }
+            return false;
                 }
+
+        public string getDigitoTabla()
+        {
+            string data = null;
+            string consulta = "getDigito";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@nombre", "Users");
+            DataTable info = Leer(consulta, Hdatos);
+            foreach (DataRow row in info.Rows)
+            {
+                data = row["digito_tabla"].ToString();
+            }
+            return data;
+        }
         public void setDigitoTabla()
         {
             string consulta = "setDigito";

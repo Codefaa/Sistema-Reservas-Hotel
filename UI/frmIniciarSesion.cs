@@ -53,5 +53,18 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-    }
+
+        private void frmIniciarSesion_Load(object sender, EventArgs e)
+        {
+            BLLUser bllU = new BLLUser();
+            if (bllU.validarDigito())
+            {
+                MessageBox.Show("si");
+            }
+            else
+            {
+                MessageBox.Show("no");
+            }
+        }
+        }
 }
