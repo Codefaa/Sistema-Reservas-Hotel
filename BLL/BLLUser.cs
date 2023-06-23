@@ -16,12 +16,22 @@ namespace BLL
         Encriptar encriptar = new Encriptar(); 
         DALUser daluser = new DALUser();
        
-
+        public bool validarDigito()
+        {
+            string digito = null;
+            foreach (BEUser user in daluser.GetAll())
+            {
+                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            }
+            return daluser.validarDigito(digito);
+        }
         public void Create(IUser user)
         {
             user.Contraseña = encriptar.GenerarMD5(user.Contraseña);
+            user.Digito = encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
 
             daluser.CreateUser(user);
+            daluser.setDigitoTabla();
         }
         public IUser Login(string email, string password)
         {

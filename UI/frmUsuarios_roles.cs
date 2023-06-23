@@ -20,7 +20,7 @@ namespace UI
         BLLUser bllUser;
         BEUser seleccion;
         BEUser tmp = new BEUser();
-
+        BEComposite seleccionTree;
         public frmUsuarios_roles()
         {
             InitializeComponent();
@@ -176,5 +176,24 @@ namespace UI
             }
         }
         #endregion
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            seleccionTree = (BEComposite)e.Node.Tag;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var buscar = tmp.Permisos.Find(x => x.Id == seleccionTree.Id);
+
+            tmp.Permisos.Remove(buscar);
+            MostrarPermisos(tmp);
+        }
+
+        private void removerNodo(BEComposite nodo)
+        {
+          
+        }
     }
 }

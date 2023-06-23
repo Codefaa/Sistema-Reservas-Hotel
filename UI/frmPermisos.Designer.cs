@@ -51,6 +51,7 @@ namespace UI
             this.label5 = new System.Windows.Forms.Label();
             this.cboFamilias = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupPatentes.SuspendLayout();
             this.groupConfigurarFamilias.SuspendLayout();
             this.groupFamilias.SuspendLayout();
@@ -178,6 +179,7 @@ namespace UI
             // 
             // groupConfigurarFamilias
             // 
+            this.groupConfigurarFamilias.Controls.Add(this.button2);
             this.groupConfigurarFamilias.Controls.Add(this.cmdGuardarFamilia);
             this.groupConfigurarFamilias.Controls.Add(this.treeConfigurarFamilia);
             this.groupConfigurarFamilias.Location = new System.Drawing.Point(559, 11);
@@ -192,7 +194,7 @@ namespace UI
             // 
             // cmdGuardarFamilia
             // 
-            this.cmdGuardarFamilia.Location = new System.Drawing.Point(94, 250);
+            this.cmdGuardarFamilia.Location = new System.Drawing.Point(11, 250);
             this.cmdGuardarFamilia.Margin = new System.Windows.Forms.Padding(2);
             this.cmdGuardarFamilia.Name = "cmdGuardarFamilia";
             this.cmdGuardarFamilia.Size = new System.Drawing.Size(110, 23);
@@ -210,6 +212,7 @@ namespace UI
             this.treeConfigurarFamilia.Size = new System.Drawing.Size(262, 223);
             this.treeConfigurarFamilia.TabIndex = 0;
             this.treeConfigurarFamilia.Tag = "listFamilias";
+            this.treeConfigurarFamilia.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeConfigurarFamilia_AfterSelect);
             // 
             // groupFamilias
             // 
@@ -319,6 +322,18 @@ namespace UI
             this.label4.Tag = "lbTodaslasFamilias";
             this.label4.Text = "Todas las familias";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(163, 250);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Tag = "btnGuardarFamilia";
+            this.button2.Text = "sacar nodo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,5 +377,6 @@ namespace UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
     }
 }

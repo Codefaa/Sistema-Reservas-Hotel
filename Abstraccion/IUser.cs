@@ -12,6 +12,8 @@ namespace Abstraccion
         string Usuario { get; set; }
         string Contraseña { get; set; }
         int DNI { get; set; }
+        string Digito { get; set; }
+
         string Email { get; set; }
     }
 }

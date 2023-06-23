@@ -8,6 +8,7 @@ using Abstraccion;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+
 using BE;
 namespace DAL
 {
@@ -54,6 +55,37 @@ namespace DAL
             }
 
             return table;
+        }
+        public bool validarDigito(string digito)
+        {
+            if(getDigitoTabla() == digito)
+            {
+                return true;
+            }
+            return false;
+                }
+
+        public string getDigitoTabla()
+        {
+            string data = null;
+            string consulta = "getDigito";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@nombre", "Users");
+            DataTable info = Leer(consulta, Hdatos);
+            foreach (DataRow row in info.Rows)
+            {
+                data = row["digito_tabla"].ToString();
+            }
+            return data;
+        }
+        public void setDigitoTabla()
+        {
+            string consulta = "setDigito";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@Tabla", "Users");
+            Hdatos.Add("@Digito", this.armarDigitoTabla());
+            Escribir(consulta, Hdatos);
+
         }
         public void Escribir(string consulta, Hashtable Hdatos)
         {
@@ -105,6 +137,7 @@ namespace DAL
             Hdatos.Add("@Password", user.Contraseña);
             Hdatos.Add("@DNI", user.DNI);
             Hdatos.Add("@Email", user.Email);
+            Hdatos.Add("@Digito", user.Digito);
 
             Escribir(consulta, Hdatos);
         }
@@ -156,6 +189,9 @@ namespace DAL
                 BEUser c = new BEUser();
                 c.id = reader.GetInt32(reader.GetOrdinal("Id"));
                 c.Usuario = reader.GetString(reader.GetOrdinal("Username"));
+                c.Contraseña = reader.GetString(reader.GetOrdinal("Password"));
+                c.Digito = reader.GetString(reader.GetOrdinal("Digito"));
+
                 lista.Add(c);
             }
 
@@ -163,6 +199,16 @@ namespace DAL
             conexion.Close();
 
             return lista;
+        }
+        public string armarDigitoTabla()
+        {
+            List<BEUser> lista = this.GetAll();
+            string digito = null;
+            foreach(BEUser user in lista)
+            {
+                digito = digito + user.Digito;
+            }
+            return digito; 
         }
         public void GuardarPermisos(BEUser u)
         {
