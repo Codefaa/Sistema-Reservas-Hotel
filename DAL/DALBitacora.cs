@@ -13,9 +13,9 @@ namespace DAL
 {
     public class DALBitacora
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
-
+        public SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
         public SqlTransaction transaccion;
+
         public DataTable Leer(string query, Hashtable hdatos)
         {
             conexion.Open();
@@ -76,7 +76,7 @@ namespace DAL
                     }
                 }
 
-                int respuesta = comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
 
                 transaccion.Commit();
             }
@@ -137,7 +137,9 @@ namespace DAL
         public List<BEBitacora> Buscar(string categoria,DateTime desde,DateTime hasta)
         {
             List<BEBitacora> listaBitacoras = new List<BEBitacora>();
+
             string query = "S_Bitacora_Buscar";
+
             Hashtable hdatos = new Hashtable();
             hdatos.Add("@Categoria", categoria);
             hdatos.Add("@desde", desde);

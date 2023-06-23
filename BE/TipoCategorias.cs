@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public enum Categorias
+    public enum TipoCategorias
     {
         Sesion,
+        Idioma,
     }
 }

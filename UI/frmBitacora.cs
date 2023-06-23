@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 using BE;
 using BLL;
+using Abstraccion;
+using Servicios;
 
 namespace UI
 {
-    public partial class frmBitacora : Form
+    public partial class frmBitacora : Form, IObservador
     {
         public frmBitacora()
         {
@@ -27,18 +29,6 @@ namespace UI
             grillaBitacora.DataSource = null;
             grillaBitacora.DataSource = _BLLBitacora.getAll();
         }
-        private void grillaBitacora_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void frmBitacora_Load(object sender, EventArgs e)
-        {
-            
-
-            comboCategorias.DataSource = Enum.GetValues(typeof(Categorias)); 
-            CargarGrilla();
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -46,9 +36,43 @@ namespace UI
             DateTime desde = dateTimePicker1.Value;
             DateTime hasta = dateTimePicker2.Value;
 
-
             grillaBitacora.DataSource = null;
             grillaBitacora.DataSource = _BLLBitacora.Buscar(categoria,desde,hasta);
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarGrilla();
+        }
+
+
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
+        private void frmBitacora_Load(object sender, EventArgs e)
+        {
+            comboCategorias.DataSource = Enum.GetValues(typeof(TipoCategorias));
+            CargarGrilla();
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
+        }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

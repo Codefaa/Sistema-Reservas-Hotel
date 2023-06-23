@@ -8,8 +8,8 @@ namespace Abstraccion
 {
     public interface ITraduccion
     {
-        int Id { get; set; }
         string PalabraTraducida { get; set; }
         IPalabra Palabra { get; set; }
+        IIdioma Idioma { get; set; }
     }
 }

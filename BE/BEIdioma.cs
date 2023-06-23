@@ -20,6 +20,11 @@ namespace BE
             Nombre = "Español";
             Traducciones = new List<ITraduccion>();
         }
+        public BEIdioma(string nombre)
+        {
+            Nombre = nombre;
+            Traducciones = new List<ITraduccion>();
+        }
         public void AgregarTraduccion(ITraduccion traduccion)
         {
             Traducciones.Add(traduccion);

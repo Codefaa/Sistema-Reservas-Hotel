@@ -13,7 +13,7 @@ namespace DAL
 {
     public class DALObserver
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
+        public SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
 
         public SqlTransaction transaccion;
         public DataTable Leer(string query, Hashtable hdatos)
@@ -76,7 +76,7 @@ namespace DAL
                     }
                 }
 
-                int respuesta = comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
 
                 transaccion.Commit();
             }
@@ -112,7 +112,6 @@ namespace DAL
                 foreach (DataRow fila in table.Rows)
                 {
                     BETraduccion BEunaTraduccion = new BETraduccion();
-                    BEunaTraduccion.Id = Convert.ToInt32(fila["Id"]);
                     BEunaTraduccion.PalabraTraducida = fila["PalabraTraducida"].ToString();
                     BEPalabra BEunaPalabra = new BEPalabra();
                     BEunaPalabra.Id = Convert.ToInt32(fila["Id_Palabra"]);
@@ -129,6 +128,134 @@ namespace DAL
             }
 
             return BEunIdioma;
+        }
+        public void AltaIdioma(BEIdioma idioma)
+        {
+            string query = "S_Idioma_Alta";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@Nombre", idioma.Nombre);
+            Escribir(query, hdatos);
+        }
+        public void BajaIdioma(BEIdioma idioma)
+        {
+            string query = "S_Idioma_Borrar";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@Id", idioma.Id);
+            Escribir(query, hdatos);
+        }
+        public void ModificarIdioma(BEIdioma idioma)
+        {
+            string query = "S_Idioma_Modificar";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@Id", idioma.Id);
+            hdatos.Add("@Nombre", idioma.Nombre);
+            Escribir(query, hdatos);
+        }
+        public List<BEIdioma> LeerIdiomas()
+        {
+            List<BEIdioma> listaIdioma = new List<BEIdioma>();
+            string query = "S_Idioma_Leer";
+            DataTable table = Leer(query, null);
+
+            if (table.Rows.Count > 0)
+            {
+                foreach (DataRow fila in table.Rows)
+                {
+                    BEIdioma BEunIdioma = new BEIdioma();
+                    BEunIdioma.Id = Convert.ToInt32(fila["Id"]);
+                    BEunIdioma.Nombre = fila["Nombre"].ToString();
+
+                    listaIdioma.Add(BEunIdioma);
+                }
+            }
+            else
+            {
+                listaIdioma = null;
+            }
+            return listaIdioma;
+        }
+        public List<BEPalabra> LeerPalabras()
+        {
+            List<BEPalabra> listaPalabras = new List<BEPalabra>();
+            string query = "S_Palabra_Leer";
+            DataTable table = Leer(query, null);
+
+            if(table.Rows.Count > 0)
+            {
+                foreach (DataRow fila in table.Rows)
+                {
+                    BEPalabra BEunaPalabra = new BEPalabra();
+                    BEunaPalabra.Id = Convert.ToInt32(fila["Id_Palabra"]);
+                    BEunaPalabra.Texto = fila["Texto"].ToString();
+
+                    listaPalabras.Add(BEunaPalabra);
+                }
+            }
+            else
+            {
+                listaPalabras = null;
+            }
+            return listaPalabras;
+        }
+        public void AltaTraduccion(BETraduccion traduccion)
+        {
+            string query = "S_Traduccion_Alta";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@PalabraTraducida", traduccion.PalabraTraducida);
+            hdatos.Add("@Id_Palabra", traduccion.Palabra.Id);
+            hdatos.Add("@Id_Idioma", traduccion.Idioma.Id);
+            Escribir(query, hdatos);    
+        }
+        public void BorrarTraduccion(BETraduccion traduccion)
+        {
+            string query = "S_Traduccion_Borrar";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@Id_Idioma", traduccion.Idioma.Id);
+            hdatos.Add("@Id_Palabra", traduccion.Palabra.Id);
+            Escribir(query, hdatos);
+        }
+        public void ModificarTraduccion(BETraduccion traduccion)
+        {
+            string query = "S_Traduccion_Modificar";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@PalabraTraducida", traduccion.PalabraTraducida);
+            hdatos.Add("@Id_Idioma", traduccion.Idioma.Id);
+            hdatos.Add("@Id_Palabra", traduccion.Palabra.Id);
+            Escribir(query, hdatos);
+        }
+        public List<BETraduccion> LeerTraducciones(BETraduccion traduccion)
+        {
+            List<BETraduccion> listaTraducciones = new List<BETraduccion>();
+            string query = "S_Traduccion_LeerxIdioma";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add(@"Id_Idioma", traduccion.Idioma.Id);
+            DataTable table = Leer(query, hdatos);
+
+            if (table.Rows.Count > 0)
+            {
+                foreach (DataRow fila in table.Rows)
+                {
+                    BETraduccion BEunaTraduccion = new BETraduccion();
+                    BEunaTraduccion.PalabraTraducida = fila["PalabraTraducida"].ToString();
+                    BEPalabra BEunaPalabra = new BEPalabra();
+                    BEunaPalabra.Id = Convert.ToInt32(fila["Id_Palabra"]);
+                    BEunaPalabra.Texto = fila["Texto"].ToString();
+                    BEIdioma BEunIdioma = new BEIdioma();
+                    BEunIdioma.Id = Convert.ToInt32(fila["Id"]);
+                    BEunIdioma.Nombre = fila["Nombre"].ToString();
+
+                    BEunaTraduccion.Palabra = BEunaPalabra;
+                    BEunaTraduccion.Idioma = BEunIdioma;
+
+                    listaTraducciones.Add(BEunaTraduccion);
+                }
+            }
+            else
+            {
+                listaTraducciones = null;
+            }
+
+            return listaTraducciones;
         }
     }
 }

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL Bitacora.cs" />
+    <Compile Include="DALBitacora.cs" />
     <Compile Include="DALObserver.cs" />
     <Compile Include="DALPermisos.cs" />
     <Compile Include="DALUser.cs" />
