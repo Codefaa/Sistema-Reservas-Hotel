@@ -12,7 +12,7 @@ namespace DAL
 {
     public class DALPermisos
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
+        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
 
         public Array GetAllPermission()
         {
@@ -22,7 +22,7 @@ namespace DAL
         {
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
-            cs.DataSource = @"DESKTOP-D1HGMQE\SQLEXPRESS";
+            cs.DataSource = @".";
             cs.InitialCatalog = "BD SIGG";
             return cs.ConnectionString;
         }

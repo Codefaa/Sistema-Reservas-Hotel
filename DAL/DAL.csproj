@@ -60,6 +60,7 @@
   <ItemGroup>
     <None Include="bak\bakclase12-5" />
     <None Include="bak\bakk" />
+    <None Include="bak\mibakupsuperterminadoporfavornoterompas" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

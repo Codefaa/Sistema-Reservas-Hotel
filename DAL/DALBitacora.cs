@@ -13,7 +13,7 @@ namespace DAL
 {
     public class DALBitacora
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
+        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
         public SqlTransaction transaccion;
 
         public DataTable Leer(string query, Hashtable hdatos)

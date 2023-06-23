@@ -14,7 +14,7 @@ namespace DAL
 {
     public class DALUser
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-D1HGMQE\SQLEXPRESS;Initial Catalog=BD SIGG;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
         SqlTransaction transaccion;
 
         public DataTable Leer(string query, Hashtable hdatos)
@@ -172,6 +172,7 @@ namespace DAL
         }
         public List<BEUser> GetAll()
         {
+            conexion.Close();
             conexion.Open();
             var cmd = new SqlCommand();
             cmd.Connection = conexion;
