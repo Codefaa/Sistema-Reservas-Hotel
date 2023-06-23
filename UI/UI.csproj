@@ -67,6 +67,12 @@
     <Compile Include="frmCrear.Designer.cs">
       <DependentUpon>frmCrear.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCrearIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrearIdioma.Designer.cs">
+      <DependentUpon>frmCrearIdioma.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrear.resx">
       <DependentUpon>frmCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCrearIdioma.resx">
+      <DependentUpon>frmCrearIdioma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIdioma.resx">
       <DependentUpon>frmIdioma.cs</DependentUpon>

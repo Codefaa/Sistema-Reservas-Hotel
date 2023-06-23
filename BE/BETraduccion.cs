@@ -10,8 +10,8 @@ namespace BE
 {
     public class BETraduccion : ITraduccion
     {
-        public int Id { get; set; }
         public string PalabraTraducida { get; set; }
         public IPalabra Palabra { get; set; }
+        public IIdioma Idioma { get; set; }
     }
 }

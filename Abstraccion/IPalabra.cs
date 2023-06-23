@@ -10,5 +10,6 @@ namespace Abstraccion
     {
         int Id { get; set; }
         string Texto { get; set; }
+        
     }
 }

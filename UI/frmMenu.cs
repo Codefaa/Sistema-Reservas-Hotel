@@ -53,7 +53,12 @@ namespace UI
             frm.MdiParent = this;
             frm.Show();
         }
-
+        private void crearIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCrearIdioma frm = new frmCrearIdioma();
+            frm.MdiParent = this;
+            frm.Show();
+        }
 
         #region Idioma
 
@@ -86,5 +91,7 @@ namespace UI
             }
         }
         #endregion
+
+
     }
 }

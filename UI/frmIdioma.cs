@@ -26,36 +26,45 @@ namespace UI
 
         BLLIdioma BLLunIdioma;
         Sesion sesion = Sesion.Instance;
-        enum enumIdiomas
+
+        void CargarComboIdioma()
         {
-            Español,
-            Ingles
+            comboIdiomas.DataSource = null;
+            comboIdiomas.DataSource = BLLunIdioma.LeerIdiomas();
+
+            comboIdiomas.DisplayMember = "Nombre";
+            comboIdiomas.ValueMember = "Id";
+            comboIdiomas.Refresh();
         }
         private void frmIdioma_Load(object sender, EventArgs e)
         {
-            comboIdiomas.DataSource = Enum.GetValues(typeof(enumIdiomas));
-            comboIdiomas.Text = Sesion.Idioma.Nombre;
+            CargarComboIdioma();
 
             sesion.RegistrarObservador(this);
             sesion.ActualizarObservadores(Sesion.Idioma);
         }
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            if(comboIdiomas.Text == "Español")
-            {
-                Sesion.Idioma.Id = 1;
-                Sesion.Idioma.Nombre = "Español";
-            }
-            if(comboIdiomas.Text == "Ingles")
-            {
-                Sesion.Idioma.Id = 2;
-                Sesion.Idioma.Nombre = "Ingles";
-            }
+            Sesion.Idioma = (BEIdioma)comboIdiomas.SelectedItem;
 
             Sesion.Idioma = BLLunIdioma.GenerarDiccionarios(Sesion.Idioma);
-            sesion.ActualizarObservadores(Sesion.Idioma);
 
-            comboIdiomas.Text = Sesion.Idioma.Nombre;
+            if(Sesion.Idioma != null)
+            {
+                BLLBitacora BLLunaBitacora = new BLLBitacora();
+                Sesion sesion = Sesion.Instance;
+                IUser user = sesion.DevolverUsuario();
+
+                BLLunaBitacora.insertBitacora(user.Usuario, "Idioma", "Cambiar idioma");
+
+                sesion.ActualizarObservadores(Sesion.Idioma);
+
+                comboIdiomas.Text = Sesion.Idioma.Nombre;
+            }
+            else
+            {
+                MessageBox.Show("ERROR - Falta completar las 53 traducciones de las palabras");
+            }
         }
 
         public void Actualizar(IIdioma idiomaObservado)

@@ -14,12 +14,12 @@ namespace Servicios
         private IUser _user { get; set; }
 
         private static Sesion _instance = null;
-        public static BEIdioma Idioma { get; set; } //aca
-        public IList<IObservador> ObservadoresRegistrados { get; set; } //aca
+        public static BEIdioma Idioma { get; set; } 
+        public IList<IObservador> ObservadoresRegistrados { get; set; } 
         private Sesion()
         {
             Idioma = new BEIdioma();
-            ObservadoresRegistrados = new List<IObservador>(); //aca
+            ObservadoresRegistrados = new List<IObservador>(); 
         }
         public static Sesion Instance
         {
@@ -29,6 +29,10 @@ namespace Servicios
 
                 return _instance;
             }
+        }
+        public IUser DevolverUsuario()
+        {
+            return _user;
         }
         public void Login(IUser user)
         {
@@ -41,10 +45,7 @@ namespace Servicios
 
         public void RegistrarObservador(IObservador observador)
         {
-            if (ObservadoresRegistrados.Count  == 0)
-            {
-                ObservadoresRegistrados.Add(observador);
-            }
+            ObservadoresRegistrados.Add(observador);
         }
         #region Posible solucion 
         //public void RegistrarObservador(Form formulario)
