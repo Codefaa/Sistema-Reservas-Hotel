@@ -13,9 +13,9 @@ namespace BLL
 {
     public class BLLUser
     {
-        Encriptar encriptar = new Encriptar(); 
+        Encriptar encriptar = new Encriptar();
         DALUser daluser = new DALUser();
-       
+
         public bool validarDigito()
         {
             string digito = null;
@@ -23,15 +23,28 @@ namespace BLL
             {
                 digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
             }
-            return daluser.validarDigito(digito);
+            return daluser.validarDigito(encriptar.GenerarMD5(digito));
+
+        }
+        public  void regenerarDigito()
+        {
+            string digito = null;
+            foreach (BEUser user in daluser.GetAll())
+            {
+                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            }
+
+            daluser.setDigitoTabla(encriptar.GenerarMD5(digito));
         }
         public void Create(IUser user)
         {
             user.Contraseña = encriptar.GenerarMD5(user.Contraseña);
-            user.Digito = encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            user.Digito = user.Contraseña + user.Email + user.DNI + user.Usuario;
+            user.Digito = encriptar.GenerarMD5(user.Digito);
 
             daluser.CreateUser(user);
-            daluser.setDigitoTabla();
+            daluser.setDigitoTabla(encriptar.GenerarMD5(daluser.armarDigitoTabla()));
+            
         }
         public IUser Login(string email, string password)
         {

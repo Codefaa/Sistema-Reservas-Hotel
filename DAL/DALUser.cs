@@ -78,12 +78,12 @@ namespace DAL
             }
             return data;
         }
-        public void setDigitoTabla()
+        public void setDigitoTabla(string data)
         {
             string consulta = "setDigito";
             Hashtable Hdatos = new Hashtable();
             Hdatos.Add("@Tabla", "Users");
-            Hdatos.Add("@Digito", this.armarDigitoTabla());
+            Hdatos.Add("@Digito", data);
             Escribir(consulta, Hdatos);
 
         }
@@ -190,9 +190,10 @@ namespace DAL
                 BEUser c = new BEUser();
                 c.id = reader.GetInt32(reader.GetOrdinal("Id"));
                 c.Usuario = reader.GetString(reader.GetOrdinal("Username"));
+                c.DNI = reader.GetInt32(reader.GetOrdinal("DNI"));
                 c.Contraseña = reader.GetString(reader.GetOrdinal("Password"));
                 c.Digito = reader.GetString(reader.GetOrdinal("Digito"));
-
+                c.Email = reader.GetString(reader.GetOrdinal("Email"));
                 lista.Add(c);
             }
 

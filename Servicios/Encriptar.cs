@@ -14,17 +14,24 @@ namespace Servicios
         {
             try
             {
-                UnicodeEncoding codigo = new UnicodeEncoding();
-                byte[] bytetexto = codigo.GetBytes(contraseña);
-                MD5CryptoServiceProvider MD5 = new MD5CryptoServiceProvider();
-                byte[] bytehash = MD5.ComputeHash(bytetexto);
-                return Convert.ToBase64String(bytehash);
+                if (contraseña != null)
+                {
+                    UnicodeEncoding codigo = new UnicodeEncoding();
+                    byte[] bytetexto = codigo.GetBytes(contraseña);
+                    MD5CryptoServiceProvider MD5 = new MD5CryptoServiceProvider();
+                    byte[] bytehash = MD5.ComputeHash(bytetexto);
+                    return Convert.ToBase64String(bytehash);
+                }
+                else
+                {
+                    return "null";
+                }
             }
-            catch(CryptographicException ex)
+            catch (CryptographicException ex)
             {
                 throw ex;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

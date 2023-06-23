@@ -8,8 +8,18 @@ namespace UI
     {
         public frmIniciarSesion()
         {
+            BLLUser bllU = new BLLUser();
+            if (!bllU.validarDigito())
+            {
+                Hide();
+                errorDigito frmError = new errorDigito();
+                frmError.ShowDialog(this);
+
+
+            }
+            else { 
             InitializeComponent();
-        }
+        }}
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -56,15 +66,7 @@ namespace UI
 
         private void frmIniciarSesion_Load(object sender, EventArgs e)
         {
-            BLLUser bllU = new BLLUser();
-            if (bllU.validarDigito())
-            {
-                MessageBox.Show("si");
-            }
-            else
-            {
-                MessageBox.Show("no");
-            }
+            
         }
         }
 }
