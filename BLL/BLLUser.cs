@@ -43,7 +43,8 @@ namespace BLL
             user.Digito = encriptar.GenerarMD5(user.Digito);
 
             daluser.CreateUser(user);
-            daluser.setDigitoTabla(encriptar.GenerarMD5(daluser.armarDigitoTabla()));
+            //se crea el digito desde 0
+            this.regenerarDigito();
             
         }
         public IUser Login(string email, string password)
@@ -64,6 +65,22 @@ namespace BLL
             {
                 throw e;
             }
+        }
+        public void Modificar(BEUser user)
+        {
+            daluser.Modificar(user);
+
+            //se calcula devuelta el digito
+            this.regenerarDigito();
+        }
+        public void RestaurarEstado(BEUserLog log)
+        {
+            daluser.RestaurarEstado(log);
+            this.regenerarDigito();
+        }
+         public List<BEUserLog> getLog(BEUser user)
+        {
+            return daluser.getLog(user.id);
         }
         public IUser GetUser(string email)
         {

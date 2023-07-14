@@ -67,6 +67,12 @@
     <Compile Include="frmBitacora.Designer.cs">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmControlUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControlUser.Designer.cs">
+      <DependentUpon>FrmControlUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCrear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBitacora.resx">
       <DependentUpon>frmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControlUser.resx">
+      <DependentUpon>FrmControlUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrear.resx">
       <DependentUpon>frmCrear.cs</DependentUpon>

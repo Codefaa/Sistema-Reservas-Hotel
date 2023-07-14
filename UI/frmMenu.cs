@@ -88,8 +88,10 @@ namespace UI
 
         public void ActualizarItem(ToolStripMenuItem item, IIdioma idiomaObservado)
         {
-            item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
-
+            if (item.Tag != null)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+            }
             foreach (ToolStripDropDownItem subItem in item.DropDownItems)
             {
                 if (subItem is ToolStripMenuItem)
@@ -98,8 +100,14 @@ namespace UI
                 }
             }
         }
+
         #endregion
 
-
+        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmControlUser frm = new FrmControlUser();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

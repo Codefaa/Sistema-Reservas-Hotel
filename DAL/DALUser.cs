@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Abstraccion;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 
+using Abstraccion;
 using BE;
 namespace DAL
 {
@@ -55,6 +55,50 @@ namespace DAL
             }
 
             return table;
+        }
+        public void RestaurarEstado(BEUserLog log)
+        {
+            string consulta = "RestoreUserStatus";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@Username", log.Username);
+            Hdatos.Add("@IdUser", log.IdUser);
+            Hdatos.Add("@Dni", log.Dni);
+            Hdatos.Add("@schedule", DateTime.Now);
+
+            Escribir(consulta, Hdatos);
+        }
+        public List<BEUserLog> getLog(int IdUser)
+        {
+            List<BEUserLog> data = new List<BEUserLog>();
+            
+            string consulta = "GetLog";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@IdUser", IdUser);
+            DataTable info = Leer(consulta, Hdatos);
+            foreach (DataRow row in info.Rows)
+            {
+                BEUserLog beUserLog = new BEUserLog();
+                beUserLog.IdUser = Convert.ToInt32(row["IdUser"]);
+                beUserLog.Dni = Convert.ToInt32(row["Dni"]);
+                beUserLog.Username = row["Username"].ToString();    
+                beUserLog.Id = Convert.ToInt32(row["Idlog"]);
+                beUserLog.Tipo = row["Tipo"].ToString();
+                beUserLog.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    data.Add(beUserLog);
+            }
+            return data;
+        }
+        public void Modificar(BEUser user)
+        {
+
+            string consulta = "Modificar";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@username", user.Usuario);
+            Hdatos.Add("@Id", user.id);
+            Hdatos.Add("@dni", user.DNI);
+            Hdatos.Add("@schedule", DateTime.Now);
+
+            Escribir(consulta, Hdatos);
         }
         public bool validarDigito(string digito)
         {

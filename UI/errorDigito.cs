@@ -27,7 +27,11 @@ namespace UI
         {
             BLLUser bll = new BLLUser();
 
-            bll.regenerarDigito();
+        }
+
+        private void errorDigito_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

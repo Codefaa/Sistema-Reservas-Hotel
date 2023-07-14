@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BEBitacora.cs" />
+    <Compile Include="BEUserLog.cs" />
     <Compile Include="TipoCategorias.cs" />
     <Compile Include="BEComponente_compuesto.cs" />
     <Compile Include="BEComposite.cs" />

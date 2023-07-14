@@ -39,7 +39,8 @@ namespace UI
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(64, 128);
+            this.metroLabel1.Location = new System.Drawing.Point(43, 83);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(396, 25);
             this.metroLabel1.TabIndex = 0;
@@ -49,7 +50,8 @@ namespace UI
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 37);
+            this.metroLabel2.Location = new System.Drawing.Point(2, 24);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(542, 25);
             this.metroLabel2.TabIndex = 1;
@@ -59,7 +61,8 @@ namespace UI
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.Location = new System.Drawing.Point(116, 87);
+            this.metroLabel3.Location = new System.Drawing.Point(77, 57);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(297, 25);
             this.metroLabel3.TabIndex = 2;
@@ -71,9 +74,10 @@ namespace UI
             this.metroButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.metroButton1.Location = new System.Drawing.Point(172, 196);
+            this.metroButton1.Location = new System.Drawing.Point(206, 128);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(159, 73);
+            this.metroButton1.Size = new System.Drawing.Size(106, 47);
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Continuar";
             this.metroButton1.UseSelectable = true;
@@ -81,16 +85,18 @@ namespace UI
             // 
             // errorDigito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 450);
+            this.ClientSize = new System.Drawing.Size(548, 292);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimizeBox = false;
             this.Name = "errorDigito";
             this.Text = "errorDigito";
+            this.Load += new System.EventHandler(this.errorDigito_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

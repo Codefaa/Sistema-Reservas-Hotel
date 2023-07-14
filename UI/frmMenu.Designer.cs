@@ -38,6 +38,8 @@ namespace UI
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,8 @@ namespace UI
             this.archivoToolStripMenuItem,
             this.bitacoraToolStripMenuItem,
             this.gestionDeRolesToolStripMenuItem,
-            this.opcionesToolStripMenuItem});
+            this.opcionesToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
@@ -83,7 +86,7 @@ namespace UI
             // familiasYPatentesToolStripMenuItem
             // 
             this.familiasYPatentesToolStripMenuItem.Name = "familiasYPatentesToolStripMenuItem";
-            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.familiasYPatentesToolStripMenuItem.Tag = "FamiliasYPatentes";
             this.familiasYPatentesToolStripMenuItem.Text = "Familias y patentes";
             this.familiasYPatentesToolStripMenuItem.Click += new System.EventHandler(this.familiasYPatentesToolStripMenuItem_Click);
@@ -91,7 +94,7 @@ namespace UI
             // asignarRolesToolStripMenuItem
             // 
             this.asignarRolesToolStripMenuItem.Name = "asignarRolesToolStripMenuItem";
-            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.asignarRolesToolStripMenuItem.Tag = "AsignarRoles";
             this.asignarRolesToolStripMenuItem.Text = "Asignar roles";
             this.asignarRolesToolStripMenuItem.Click += new System.EventHandler(this.asignarRolesToolStripMenuItem_Click);
@@ -109,7 +112,7 @@ namespace UI
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
-            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.idiomaToolStripMenuItem.Tag = "Idioma";
             this.idiomaToolStripMenuItem.Text = "Idioma";
             this.idiomaToolStripMenuItem.Click += new System.EventHandler(this.idiomaToolStripMenuItem_Click);
@@ -117,10 +120,25 @@ namespace UI
             // crearIdiomaToolStripMenuItem
             // 
             this.crearIdiomaToolStripMenuItem.Name = "crearIdiomaToolStripMenuItem";
-            this.crearIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearIdiomaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.crearIdiomaToolStripMenuItem.Tag = "CrearIdioma";
             this.crearIdiomaToolStripMenuItem.Text = "Crear idioma";
             this.crearIdiomaToolStripMenuItem.Click += new System.EventHandler(this.crearIdiomaToolStripMenuItem_Click);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.controlDeCambiosToolStripMenuItem});
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // controlDeCambiosToolStripMenuItem
+            // 
+            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
+            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.controlDeCambiosToolStripMenuItem.Text = "Control de cambios";
+            this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -150,5 +168,7 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearIdiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controlDeCambiosToolStripMenuItem;
     }
 }
