@@ -27,6 +27,8 @@ namespace UI
         {
             BLLUser bll = new BLLUser();
 
+            bll.regenerarDigito();
+            frmIniciarSesion frm = new frmIniciarSesion;
         }
 
         private void errorDigito_Load(object sender, EventArgs e)
