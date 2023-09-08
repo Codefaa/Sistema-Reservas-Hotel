@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALBitacora.cs" />
+    <Compile Include="DALCliente.cs" />
+    <Compile Include="DALHabitacion.cs" />
     <Compile Include="DALObserver.cs" />
     <Compile Include="DALPermisos.cs" />
+    <Compile Include="DALReserva.cs" />
     <Compile Include="DALUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,9 +62,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bak\bakclase12-5" />
-    <None Include="bak\bakk" />
-    <None Include="bak\mibakupsuperterminadoporfavornoterompas" />
+    <Folder Include="bak\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

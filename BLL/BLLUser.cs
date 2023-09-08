@@ -16,31 +16,8 @@ namespace BLL
         Encriptar encriptar = new Encriptar();
         DALUser daluser = new DALUser();
 
-        public bool validarDigito()
-        {
-            string digito = null;
-            List<BEUser> list = daluser.GetAll();
-            if(list.Count == 0)
-            {
-                return true;
-            }
-            foreach (BEUser user in list)
-            {
-                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
-            }
-            return daluser.validarDigito(encriptar.GenerarMD5(digito));
 
-        }
-        public  void regenerarDigito()
-        {
-            string digito = null;
-            foreach (BEUser user in daluser.GetAll())
-            {
-                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
-            }
-
-            daluser.setDigitoTabla(encriptar.GenerarMD5(digito));
-        }
+        #region LoginUser
         public void Create(IUser user)
         {
             user.Contraseña = encriptar.GenerarMD5(user.Contraseña);
@@ -51,7 +28,12 @@ namespace BLL
             daluser.CreateUser(user);
             //se crea el digito desde 0
             this.regenerarDigito();
-            
+
+        }
+        public IUser GetUser(string email)
+        {
+            IUser r = daluser.GetUser(email);
+            return r;
         }
         public IUser Login(string email, string password)
         {
@@ -71,6 +53,15 @@ namespace BLL
                 throw e;
             }
         }
+
+        #endregion
+
+
+        #region ControlUser
+        public List<BEUserLog> getLog(BEUser user)
+        {
+            return daluser.getLog(user.id);
+        }
         public void Modificar(BEUser user)
         {
             daluser.Modificar(user);
@@ -83,16 +74,11 @@ namespace BLL
             daluser.RestaurarEstado(log);
             this.regenerarDigito();
         }
-         public List<BEUserLog> getLog(BEUser user)
-        {
-            return daluser.getLog(user.id);
-        }
-        public IUser GetUser(string email)
-        {
-            IUser r = daluser.GetUser(email);
-            return r;
-        }
 
+        #endregion
+
+
+        #region ErrorDigitoUser [Faltan las funciones getDigitoTabla y armarDigitoTabla que estan en la BD]
         public List<BEUser> getAllUsers()
         {
             List<BEUser> listaUsuarios = new List<BEUser>();
@@ -118,9 +104,43 @@ namespace BLL
 
             return listaUsuarios;
         }
+        public bool validarDigito()
+        {
+            string digito = null;
+
+            List<BEUser> listaUsuarios = daluser.GetAll();
+
+            if (listaUsuarios.Count == 0)
+            {
+                return true;
+            }
+            foreach (BEUser user in listaUsuarios)
+            {
+                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            }
+            return daluser.validarDigito(encriptar.GenerarMD5(digito));
+
+        }
+        public void regenerarDigito()
+        {
+            string digito = null;
+
+            foreach (BEUser user in daluser.GetAll())
+            {
+                digito = digito + encriptar.GenerarMD5(user.Contraseña + user.Email + user.DNI + user.Usuario);
+            }
+
+            daluser.setDigitoTabla(encriptar.GenerarMD5(digito));
+        }
+
+        #endregion
+
+        #region RolUser
         public void GuardarPermisos(BEUser u)
         {
             daluser.GuardarPermisos(u);
         }
+
+        #endregion
     }
 }

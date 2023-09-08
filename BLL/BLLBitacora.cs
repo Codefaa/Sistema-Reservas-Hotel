@@ -16,13 +16,13 @@ namespace BLL
         {
             acceso.savelog(usuario, categoria, texto);
         }
-        public List<BEBitacora> Buscar(string categoria,DateTime desde, DateTime hasta)
-        {
-            return acceso.Buscar(categoria,desde,hasta);
-        }
         public List<BEBitacora> getAll()
         {
             return acceso.getAll();
+        }
+        public List<BEBitacora> Buscar(string categoria,DateTime desde, DateTime hasta)
+        {
+            return acceso.Buscar(categoria,desde,hasta);
         }
     }
 }

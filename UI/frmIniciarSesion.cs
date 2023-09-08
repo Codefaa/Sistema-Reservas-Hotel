@@ -9,17 +9,18 @@ namespace UI
         public frmIniciarSesion()
         {
             BLLUser bllU = new BLLUser();
+
             if (!bllU.validarDigito())
             {
                 Hide();
-                errorDigito frmError = new errorDigito();
+                frmErrorDigito frmError = new frmErrorDigito();
                 frmError.ShowDialog(this);
-
-
             }
-            else { 
-            InitializeComponent();
-        }}
+            else 
+            { 
+                InitializeComponent();  // RECORDATORIO: Cuando salga devuelta el ErrorDigito, mover esta funcion dentro del If verdadero....
+            }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -49,13 +50,12 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnCrear_Click(object sender, EventArgs e)
         {
             try
             {
-                frmCrear crear = new frmCrear();
-                crear.Show();
+                frmCrear abrir = new frmCrear();
+                abrir.Show();
                 this.Hide();
             }
             catch (Exception ex)
@@ -63,10 +63,5 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void frmIniciarSesion_Load(object sender, EventArgs e)
-        {
-            
-        }
-        }
+    }
 }

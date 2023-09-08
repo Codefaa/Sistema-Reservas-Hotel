@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using Abstraccion;
-using Servicios;
-using BE;
+﻿using Abstraccion;
 using BLL;
+using Servicios;
+using System;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -24,8 +15,8 @@ namespace UI
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sesion.Instance.Logout();
-            Application.Restart();
+            //Sesion.Instance.Logout();
+            //Application.Restart();
         }
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,7 +33,7 @@ namespace UI
 
         private void asignarRolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuarios_roles frm = new frmUsuarios_roles();
+            frmUsuariosRoles frm = new frmUsuariosRoles();
             frm.MdiParent = this;
             frm.Show();
         }
@@ -60,13 +51,22 @@ namespace UI
             frm.Show();
         }
 
+        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmControlUser frm = new frmControlUser();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+
         #region Idioma
 
         Sesion sesion = Sesion.Instance;
         private void frmMenu_Load(object sender, EventArgs e)
         {
             BLLUser bllU = new BLLUser();
-            if (bllU.validarDigito()) {
+            if (bllU.validarDigito())
+            {
                 BLLIdioma BLLunIdioma = new BLLIdioma();
                 Sesion.Idioma = BLLunIdioma.GenerarDiccionarios(Sesion.Idioma);
                 sesion.RegistrarObservador(this);
@@ -74,9 +74,9 @@ namespace UI
             }
             else
             {
-                
+
             }
-           
+
         }
         public void Actualizar(IIdioma idiomaObservado)
         {
@@ -103,11 +103,32 @@ namespace UI
 
         #endregion
 
-        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void recepcionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmControlUser frm = new FrmControlUser();
-            frm.MdiParent = this;
-            frm.Show();
+            frmRecepcion abrir = new frmRecepcion();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmClientes abrir = new frmClientes();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void habitacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHabitaciones abrir = new frmHabitaciones();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportes abrir = new frmReportes();
+            abrir.MdiParent = this;
+            abrir.Show();
         }
     }
 }

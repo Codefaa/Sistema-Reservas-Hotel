@@ -10,7 +10,6 @@ namespace BE
 {
     public class BEUser : IUser
     {
-        //Hola mundo!
         public int id { get; set; }
         public string Usuario { get; set; }
         public string Contraseña { get; set; }

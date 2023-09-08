@@ -32,7 +32,7 @@ namespace Servicios
                 }
                 else
                 {
-                    return "null";
+                    return null;
                 }
             }
             catch (CryptographicException ex)
@@ -66,7 +66,7 @@ namespace Servicios
                 }
                 else
                 {
-                    return "null";
+                    return null;
                 }
             }
             catch (CryptographicException ex)
@@ -92,7 +92,7 @@ namespace Servicios
                 }
                 else
                 {
-                    return "null";
+                    return null;
                 }
             }
             catch (CryptographicException ex)

@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Abstraccion;
+using BE;
 using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
-using Abstraccion;
-using BE;
 namespace DAL
 {
     public class DALUser
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
+        public SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString());
         SqlTransaction transaccion;
 
         public DataTable Leer(string query, Hashtable hdatos)
@@ -55,81 +56,6 @@ namespace DAL
             }
 
             return table;
-        }
-        public void RestaurarEstado(BEUserLog log)
-        {
-            string consulta = "RestoreUserStatus";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@Username", log.Username);
-            Hdatos.Add("@IdUser", log.IdUser);
-            Hdatos.Add("@Dni", log.Dni);
-            Hdatos.Add("@schedule", DateTime.Now);
-
-            Escribir(consulta, Hdatos);
-        }
-        public List<BEUserLog> getLog(int IdUser)
-        {
-            List<BEUserLog> data = new List<BEUserLog>();
-            
-            string consulta = "GetLog";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@IdUser", IdUser);
-            DataTable info = Leer(consulta, Hdatos);
-            foreach (DataRow row in info.Rows)
-            {
-                BEUserLog beUserLog = new BEUserLog();
-                beUserLog.IdUser = Convert.ToInt32(row["IdUser"]);
-                beUserLog.Dni = Convert.ToInt32(row["Dni"]);
-                beUserLog.Username = row["Username"].ToString();    
-                beUserLog.Id = Convert.ToInt32(row["Idlog"]);
-                beUserLog.Tipo = row["Tipo"].ToString();
-                beUserLog.Fecha = Convert.ToDateTime(row["Fecha"]);
-                    data.Add(beUserLog);
-            }
-            return data;
-        }
-        public void Modificar(BEUser user)
-        {
-
-            string consulta = "Modificar";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@username", user.Usuario);
-            Hdatos.Add("@Id", user.id);
-            Hdatos.Add("@dni", user.DNI);
-            Hdatos.Add("@schedule", DateTime.Now);
-
-            Escribir(consulta, Hdatos);
-        }
-        public bool validarDigito(string digito)
-        {
-            if(getDigitoTabla() == digito)
-            {
-                return true;
-            }
-            return false;
-                }
-
-        public string getDigitoTabla()
-        {
-            string data = null;
-            string consulta = "getDigito";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@nombre", "Users");
-            DataTable info = Leer(consulta, Hdatos);
-            foreach (DataRow row in info.Rows)
-            {
-                data = row["digito_tabla"].ToString();
-            }
-            return data;
-        }
-        public void setDigitoTabla(string data)
-        {
-            string consulta = "setDigito";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@Tabla", "Users");
-            Hdatos.Add("@Digito", data);
-            Escribir(consulta, Hdatos);
-
         }
         public void Escribir(string consulta, Hashtable Hdatos)
         {
@@ -173,18 +99,7 @@ namespace DAL
             }
         }
 
-        public void CreateUser(IUser user)
-        {
-            string consulta = "CREATE_USER";
-            Hashtable Hdatos = new Hashtable();
-            Hdatos.Add("@User", user.Usuario);
-            Hdatos.Add("@Password", user.Contraseña);
-            Hdatos.Add("@DNI", user.DNI);
-            Hdatos.Add("@Email", user.Email);
-            Hdatos.Add("@Digito", user.Digito);
-
-            Escribir(consulta, Hdatos);
-        }
+        #region LoginUser
         public IUser GetUser(string email)
         {
             string consulta = "GET_USER";
@@ -214,9 +129,74 @@ namespace DAL
 
             return user;
         }
+        public void CreateUser(IUser user)
+        {
+            string consulta = "CREATE_USER";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@User", user.Usuario);
+            Hdatos.Add("@Password", user.Contraseña);
+            Hdatos.Add("@DNI", user.DNI);
+            Hdatos.Add("@Email", user.Email);
+            Hdatos.Add("@Digito", user.Digito);
+
+            Escribir(consulta, Hdatos);
+        }
+
+        #endregion
+
+        #region ControlUser
+        public List<BEUserLog> getLog(int IdUser)
+        {
+            List<BEUserLog> data = new List<BEUserLog>();
+
+            string consulta = "GetLog";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@IdUser", IdUser);
+            DataTable info = Leer(consulta, Hdatos);
+
+            foreach (DataRow row in info.Rows)
+            {
+                BEUserLog beUserLog = new BEUserLog();
+                beUserLog.IdUser = Convert.ToInt32(row["IdUser"]);
+                beUserLog.Dni = Convert.ToInt32(row["Dni"]);
+                beUserLog.Username = row["Username"].ToString();
+                beUserLog.Id = Convert.ToInt32(row["Idlog"]);
+                beUserLog.Tipo = row["Tipo"].ToString();
+                beUserLog.Fecha = Convert.ToDateTime(row["Fecha"]);
+
+                data.Add(beUserLog);
+            }
+
+            return data;
+        }
+        public void Modificar(BEUser user)
+        {
+            string consulta = "Modificar";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@username", user.Usuario);
+            Hdatos.Add("@Id", user.id);
+            Hdatos.Add("@dni", user.DNI);
+            Hdatos.Add("@schedule", DateTime.Now);
+
+            Escribir(consulta, Hdatos);
+        }
+        public void RestaurarEstado(BEUserLog log)
+        {
+            string consulta = "RestoreUserStatus";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@Username", log.Username);
+            Hdatos.Add("@IdUser", log.IdUser);
+            Hdatos.Add("@Dni", log.Dni);
+            Hdatos.Add("@schedule", DateTime.Now);
+
+            Escribir(consulta, Hdatos);
+        }
+
+        #endregion
+
+        #region ErrorDigitoUser
         public List<BEUser> GetAll()
         {
-            conexion.Close();
             conexion.Open();
             var cmd = new SqlCommand();
             cmd.Connection = conexion;
@@ -246,19 +226,56 @@ namespace DAL
 
             return lista;
         }
+        public bool validarDigito(string digito)
+        {
+            if (getDigitoTabla() == digito)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        public string getDigitoTabla()
+        {
+            string data = null;
+            string consulta = "getDigito";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@nombre", "Users");
+            DataTable info = Leer(consulta, Hdatos);
+
+            foreach (DataRow row in info.Rows)
+            {
+                data = row["digito_tabla"].ToString();
+            }
+
+            return data;
+        }
+        public void setDigitoTabla(string data)
+        {
+            string consulta = "setDigito";
+            Hashtable Hdatos = new Hashtable();
+            Hdatos.Add("@Tabla", "Users");
+            Hdatos.Add("@Digito", data);
+            Escribir(consulta, Hdatos);
+        }
         public string armarDigitoTabla()
         {
             List<BEUser> lista = this.GetAll();
             string digito = null;
-            foreach(BEUser user in lista)
+
+            foreach (BEUser user in lista)
             {
                 digito = digito + user.Digito;
             }
-            return digito; 
+
+            return digito;
         }
+
+        #endregion
+
+        #region RolUser
         public void GuardarPermisos(BEUser u)
         {
-
             try
             {
                 conexion.Close();
@@ -289,5 +306,7 @@ namespace DAL
                 throw;
             }
         }
+
+        #endregion
     }
 }

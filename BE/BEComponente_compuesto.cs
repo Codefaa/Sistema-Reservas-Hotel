@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BEComponente_compuesto :BEComposite //Permisos
+    public class BEComponente_compuesto :BEComposite 
     {
 
         private IList<BEComposite> _hijos;

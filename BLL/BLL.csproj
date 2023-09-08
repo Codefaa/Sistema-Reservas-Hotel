@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLBitacora.cs" />
+    <Compile Include="BLLCliente.cs" />
+    <Compile Include="BLLHabitacion.cs" />
     <Compile Include="BLLIdioma.cs" />
     <Compile Include="BLLPalabra.cs" />
     <Compile Include="BLLPermisos.cs" />
+    <Compile Include="BLLReserva.cs" />
     <Compile Include="BLLTraduccion.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

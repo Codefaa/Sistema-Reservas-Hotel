@@ -16,6 +16,7 @@ namespace UI
             BEunLogin = new BEUser();
         }
         BEUser BEunLogin;
+
         private void btnCrear_Click(object sender, EventArgs e)
         {
             try
@@ -56,13 +57,11 @@ namespace UI
 
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            frmIniciarSesion frm = new frmIniciarSesion();
-            frm.Show();
+            frmIniciarSesion abrir = new frmIniciarSesion();
+            abrir.Show();
             this.Hide();
         }
-
     }
 }

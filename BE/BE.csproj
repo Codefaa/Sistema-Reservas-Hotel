@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BEBitacora.cs" />
+    <Compile Include="BECliente.cs" />
+    <Compile Include="BEHabitacion.cs" />
+    <Compile Include="BEReserva.cs" />
     <Compile Include="BEUserLog.cs" />
     <Compile Include="TipoCategorias.cs" />
     <Compile Include="BEComponente_compuesto.cs" />

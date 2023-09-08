@@ -16,14 +16,14 @@ namespace BLL
         DALObserver acceso = new DALObserver();
         public BEIdioma GenerarDiccionarios(BEIdioma idioma)
         {
-            Sesion.Idioma = acceso.GenerarDiccionarios(idioma);
-
             BLLPalabra BLLunaPalabra = new BLLPalabra();
             List<BEPalabra> listaPalabras = BLLunaPalabra.LeerPalabras();
 
-            if (Sesion.Idioma.Traducciones.Count == listaPalabras.Count)
+            int contadorTraducciones = acceso.GenerarDiccionarios(idioma).Traducciones.Count;
+
+            if (contadorTraducciones == listaPalabras.Count)
             {
-                return Sesion.Idioma;
+                return Sesion.Idioma = acceso.GenerarDiccionarios(idioma);
             }
             else
             {

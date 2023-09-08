@@ -132,7 +132,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(288, 249);
+            this.ClientSize = new System.Drawing.Size(288, 236);
             this.Controls.Add(this.Bienvenido);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtEmail);
@@ -140,7 +140,6 @@ namespace UI
             this.Controls.Add(this.btnLogin);
             this.Name = "frmIniciarSesion";
             this.Text = "LOGIN";
-            this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

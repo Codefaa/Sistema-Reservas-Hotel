@@ -8,7 +8,6 @@ namespace BE
 {
     public abstract class BEComposite //Permisos
     {
-        //https://gitlab.com/UAI-TCTD/usuario-patente-familia-con-composite-y-persistencia/-/blob/master/CompositePersistente.DAL/PermisosRepository.cs
         public  int Id { get; set; }
         public  string Nombre { get; set; }
         public TipoPermiso Permiso { get; set; }

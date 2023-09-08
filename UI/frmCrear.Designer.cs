@@ -44,7 +44,7 @@ namespace UI
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(80, 214);
+            this.btnCrear.Location = new System.Drawing.Point(91, 215);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(203, 23);
             this.btnCrear.TabIndex = 4;
@@ -54,7 +54,7 @@ namespace UI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(80, 243);
+            this.button1.Location = new System.Drawing.Point(91, 255);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 23);
             this.button1.TabIndex = 5;
@@ -65,7 +65,7 @@ namespace UI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(80, 9);
+            this.metroLabel1.Location = new System.Drawing.Point(125, 9);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(103, 19);
             this.metroLabel1.TabIndex = 10;
@@ -87,7 +87,7 @@ namespace UI
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[] {
         "Usuario"};
-            this.txtUsuario.Location = new System.Drawing.Point(80, 50);
+            this.txtUsuario.Location = new System.Drawing.Point(91, 50);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -119,7 +119,7 @@ namespace UI
             this.txtEmail.CustomButton.Visible = false;
             this.txtEmail.Lines = new string[] {
         "Email"};
-            this.txtEmail.Location = new System.Drawing.Point(80, 171);
+            this.txtEmail.Location = new System.Drawing.Point(91, 171);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -151,7 +151,7 @@ namespace UI
             this.txtDNI.CustomButton.Visible = false;
             this.txtDNI.Lines = new string[] {
         "DNI"};
-            this.txtDNI.Location = new System.Drawing.Point(80, 130);
+            this.txtDNI.Location = new System.Drawing.Point(91, 130);
             this.txtDNI.MaxLength = 32767;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.PasswordChar = '\0';
@@ -183,7 +183,7 @@ namespace UI
             this.txtContraseña.CustomButton.Visible = false;
             this.txtContraseña.Lines = new string[] {
         "12345678"};
-            this.txtContraseña.Location = new System.Drawing.Point(80, 89);
+            this.txtContraseña.Location = new System.Drawing.Point(91, 89);
             this.txtContraseña.MaxLength = 32767;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
@@ -240,7 +240,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(325, 308);
+            this.ClientSize = new System.Drawing.Size(325, 291);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);

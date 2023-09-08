@@ -40,6 +40,7 @@ namespace UI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupConfigurarFamilias = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.cmdGuardarFamilia = new System.Windows.Forms.Button();
             this.treeConfigurarFamilia = new System.Windows.Forms.TreeView();
             this.groupFamilias = new System.Windows.Forms.GroupBox();
@@ -51,7 +52,6 @@ namespace UI
             this.label5 = new System.Windows.Forms.Label();
             this.cboFamilias = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupPatentes.SuspendLayout();
             this.groupConfigurarFamilias.SuspendLayout();
             this.groupFamilias.SuspendLayout();
@@ -190,7 +190,19 @@ namespace UI
             this.groupConfigurarFamilias.TabIndex = 13;
             this.groupConfigurarFamilias.TabStop = false;
             this.groupConfigurarFamilias.Tag = "GroupConfigurarFamilia";
-            this.groupConfigurarFamilias.Text = "Configurar Familia";
+            this.groupConfigurarFamilias.Text = "Configurar familia";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(163, 250);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Tag = "btnSacarNodo";
+            this.button2.Text = "Sacar nodo";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cmdGuardarFamilia
             // 
@@ -322,18 +334,6 @@ namespace UI
             this.label4.Tag = "lbTodaslasFamilias";
             this.label4.Text = "Todas las familias";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(163, 250);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Tag = "btnGuardarFamilia";
-            this.button2.Text = "sacar nodo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // frmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,7 +343,7 @@ namespace UI
             this.Controls.Add(this.groupFamilias);
             this.Controls.Add(this.groupPatentes);
             this.Name = "frmPermisos";
-            this.Text = "frmMenu2";
+            this.Text = "frmPermisos";
             this.Load += new System.EventHandler(this.frmPermisos_Load);
             this.groupPatentes.ResumeLayout(false);
             this.groupPatentes.PerformLayout();

@@ -8,13 +8,13 @@ using BE;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Configuration;
 
 namespace DAL
 {
     public class DALObserver
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
-
+        public SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString());
         public SqlTransaction transaccion;
         public DataTable Leer(string query, Hashtable hdatos)
         {
@@ -122,12 +122,31 @@ namespace DAL
                     BEunIdioma.AgregarTraduccion(BEunaTraduccion);
                 }
             }
-            else
-            {
-                BEunIdioma = null;
-            }
 
             return BEunIdioma;
+        }
+        public List<BEPalabra> LeerPalabras()
+        {
+            List<BEPalabra> listaPalabras = new List<BEPalabra>();
+            string query = "S_Palabra_Leer";
+            DataTable table = Leer(query, null);
+
+            if (table.Rows.Count > 0)
+            {
+                foreach (DataRow fila in table.Rows)
+                {
+                    BEPalabra BEunaPalabra = new BEPalabra();
+                    BEunaPalabra.Id = Convert.ToInt32(fila["Id_Palabra"]);
+                    BEunaPalabra.Texto = fila["Texto"].ToString();
+
+                    listaPalabras.Add(BEunaPalabra);
+                }
+            }
+            else
+            {
+                listaPalabras = null;
+            }
+            return listaPalabras;
         }
         public void AltaIdioma(BEIdioma idioma)
         {
@@ -173,29 +192,6 @@ namespace DAL
                 listaIdioma = null;
             }
             return listaIdioma;
-        }
-        public List<BEPalabra> LeerPalabras()
-        {
-            List<BEPalabra> listaPalabras = new List<BEPalabra>();
-            string query = "S_Palabra_Leer";
-            DataTable table = Leer(query, null);
-
-            if(table.Rows.Count > 0)
-            {
-                foreach (DataRow fila in table.Rows)
-                {
-                    BEPalabra BEunaPalabra = new BEPalabra();
-                    BEunaPalabra.Id = Convert.ToInt32(fila["Id_Palabra"]);
-                    BEunaPalabra.Texto = fila["Texto"].ToString();
-
-                    listaPalabras.Add(BEunaPalabra);
-                }
-            }
-            else
-            {
-                listaPalabras = null;
-            }
-            return listaPalabras;
         }
         public void AltaTraduccion(BETraduccion traduccion)
         {

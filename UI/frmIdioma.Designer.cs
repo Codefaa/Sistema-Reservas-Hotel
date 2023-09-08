@@ -51,9 +51,9 @@ namespace UI
             // 
             // btnCambiar
             // 
-            this.btnCambiar.Location = new System.Drawing.Point(247, 78);
+            this.btnCambiar.Location = new System.Drawing.Point(218, 74);
             this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(75, 23);
+            this.btnCambiar.Size = new System.Drawing.Size(104, 23);
             this.btnCambiar.TabIndex = 2;
             this.btnCambiar.Tag = "Cambiar";
             this.btnCambiar.Text = "Cambiar";
@@ -62,6 +62,7 @@ namespace UI
             // 
             // comboIdiomas
             // 
+            this.comboIdiomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboIdiomas.FormattingEnabled = true;
             this.comboIdiomas.Location = new System.Drawing.Point(123, 28);
             this.comboIdiomas.Name = "comboIdiomas";

@@ -55,11 +55,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="errorDigito.cs">
+    <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="errorDigito.Designer.cs">
-      <DependentUpon>errorDigito.cs</DependentUpon>
+    <Compile Include="frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReserva.Designer.cs">
+      <DependentUpon>frmReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHabitacion.Designer.cs">
+      <DependentUpon>frmHabitacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHabitaciones.Designer.cs">
+      <DependentUpon>frmHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecepcion.Designer.cs">
+      <DependentUpon>frmRecepcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmErrorDigito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmErrorDigito.Designer.cs">
+      <DependentUpon>frmErrorDigito.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBitacora.cs">
       <SubType>Form</SubType>
@@ -67,11 +109,11 @@
     <Compile Include="frmBitacora.Designer.cs">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmControlUser.cs">
+    <Compile Include="frmControlUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmControlUser.Designer.cs">
-      <DependentUpon>FrmControlUser.cs</DependentUpon>
+    <Compile Include="frmControlUser.Designer.cs">
+      <DependentUpon>frmControlUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCrear.cs">
       <SubType>Form</SubType>
@@ -109,22 +151,43 @@
     <Compile Include="frmPermisos.Designer.cs">
       <DependentUpon>frmPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuarios_roles.cs">
+    <Compile Include="frmUsuariosRoles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuarios_roles.Designer.cs">
-      <DependentUpon>frmUsuarios_roles.cs</DependentUpon>
+    <Compile Include="frmUsuariosRoles.Designer.cs">
+      <DependentUpon>frmUsuariosRoles.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="errorDigito.resx">
-      <DependentUpon>errorDigito.cs</DependentUpon>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReserva.resx">
+      <DependentUpon>frmReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHabitacion.resx">
+      <DependentUpon>frmHabitacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHabitaciones.resx">
+      <DependentUpon>frmHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecepcion.resx">
+      <DependentUpon>frmRecepcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmErrorDigito.resx">
+      <DependentUpon>frmErrorDigito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBitacora.resx">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmControlUser.resx">
-      <DependentUpon>FrmControlUser.cs</DependentUpon>
+    <EmbeddedResource Include="frmControlUser.resx">
+      <DependentUpon>frmControlUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrear.resx">
       <DependentUpon>frmCrear.cs</DependentUpon>
@@ -144,8 +207,8 @@
     <EmbeddedResource Include="frmPermisos.resx">
       <DependentUpon>frmPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuarios_roles.resx">
-      <DependentUpon>frmUsuarios_roles.cs</DependentUpon>
+    <EmbeddedResource Include="frmUsuariosRoles.resx">
+      <DependentUpon>frmUsuariosRoles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

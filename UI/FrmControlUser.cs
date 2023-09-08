@@ -7,32 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Abstraccion;
 using BE;
 using BLL;
+using Servicios;
+
 namespace UI
 {
-    public partial class FrmControlUser : Form
+    public partial class frmControlUser : Form, IObservador
     {
 
-        public FrmControlUser()
+        public frmControlUser()
         {
             InitializeComponent();
         }
         BLLUser blluser = new BLLUser();
         BEUser beUser;
-        private void FrmControlUser_Load(object sender, EventArgs e)
-        {
-            RefreshCombo();
-        }
+
         private void RefreshCombo()
         {
             comboBox1.DataSource = blluser.getAllUsers();
         }
         private void RefreshGrid()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = blluser.getLog(beUser);
+            grillaControlUsuarios.DataSource = null;
+            grillaControlUsuarios.DataSource = blluser.getLog(beUser);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,15 +52,45 @@ namespace UI
             txtDni.Text = beUser.DNI.ToString();
             RefreshGrid();
 
-            lblEmail.Text ="Email: " + beUser.Email;
+            txtEmail.Text = beUser.Email;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BEUserLog log =(BEUserLog) dataGridView1.CurrentRow.DataBoundItem;
+            BEUserLog log =(BEUserLog) grillaControlUsuarios.CurrentRow.DataBoundItem;
             blluser.RestaurarEstado(log);
 
             RefreshCombo();
         }
+
+
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
+        private void FrmControlUser_Load(object sender, EventArgs e)
+        {
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
+
+            RefreshCombo();
+        }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }

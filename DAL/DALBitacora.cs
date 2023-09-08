@@ -8,12 +8,13 @@ using BE;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Configuration;
 
 namespace DAL
 {
     public class DALBitacora
     {
-        public SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BD SIGG;Integrated Security=True");
+        public SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString());
         public SqlTransaction transaccion;
 
         public DataTable Leer(string query, Hashtable hdatos)
@@ -95,6 +96,7 @@ namespace DAL
                 conexion.Close();
             }
         }
+
         public void savelog(string usuario, string categoria, string text)
         {
             string consulta = "InsertBitacora";

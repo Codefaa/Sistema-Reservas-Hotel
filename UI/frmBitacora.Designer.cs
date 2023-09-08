@@ -46,15 +46,16 @@ namespace UI
             // grillaBitacora
             // 
             this.grillaBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaBitacora.Location = new System.Drawing.Point(13, 143);
+            this.grillaBitacora.Location = new System.Drawing.Point(13, 118);
             this.grillaBitacora.Name = "grillaBitacora";
-            this.grillaBitacora.Size = new System.Drawing.Size(449, 254);
+            this.grillaBitacora.ReadOnly = true;
+            this.grillaBitacora.Size = new System.Drawing.Size(548, 254);
             this.grillaBitacora.TabIndex = 0;
             this.grillaBitacora.Tag = "grillaBuscar";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(261, 96);
+            this.btnBuscar.Location = new System.Drawing.Point(367, 66);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(173, 23);
             this.btnBuscar.TabIndex = 1;
@@ -65,7 +66,6 @@ namespace UI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnActualizar);
             this.groupBox1.Controls.Add(this.comboCategorias);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -75,7 +75,7 @@ namespace UI
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 125);
+            this.groupBox1.Size = new System.Drawing.Size(548, 100);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "groupBitacora";
@@ -83,9 +83,9 @@ namespace UI
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(261, 69);
+            this.btnActualizar.Location = new System.Drawing.Point(380, 378);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(173, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(181, 23);
             this.btnActualizar.TabIndex = 10;
             this.btnActualizar.Tag = "btnActualizar";
             this.btnActualizar.Text = "Actualizar";
@@ -94,17 +94,18 @@ namespace UI
             // 
             // comboCategorias
             // 
+            this.comboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategorias.FormattingEnabled = true;
-            this.comboCategorias.Location = new System.Drawing.Point(72, 61);
+            this.comboCategorias.Location = new System.Drawing.Point(72, 66);
             this.comboCategorias.Name = "comboCategorias";
-            this.comboCategorias.Size = new System.Drawing.Size(135, 21);
+            this.comboCategorias.Size = new System.Drawing.Size(211, 21);
             this.comboCategorias.TabIndex = 9;
             this.comboCategorias.Tag = "comboCategorias";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 69);
+            this.label4.Location = new System.Drawing.Point(11, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 8;
@@ -113,24 +114,24 @@ namespace UI
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(299, 23);
+            this.dateTimePicker2.Location = new System.Drawing.Point(330, 21);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(135, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(210, 20);
             this.dateTimePicker2.TabIndex = 7;
             this.dateTimePicker2.Tag = "timeHasta";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(72, 23);
+            this.dateTimePicker1.Location = new System.Drawing.Point(72, 21);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(211, 20);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.Tag = "timeDesde";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 28);
+            this.label3.Location = new System.Drawing.Point(289, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 5;
@@ -140,7 +141,7 @@ namespace UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 28);
+            this.label2.Location = new System.Drawing.Point(11, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 4;
@@ -151,7 +152,8 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 409);
+            this.ClientSize = new System.Drawing.Size(569, 409);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grillaBitacora);
             this.Name = "frmBitacora";

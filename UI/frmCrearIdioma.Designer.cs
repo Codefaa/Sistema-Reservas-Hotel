@@ -30,6 +30,9 @@ namespace UI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grillaIdiomas = new System.Windows.Forms.DataGridView();
+            this.btnModificarIdioma = new System.Windows.Forms.Button();
+            this.btnBajaIdioma = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -51,14 +54,11 @@ namespace UI
             this.lbNumeroTraducciones = new System.Windows.Forms.Label();
             this.lbPalabraTraducida = new System.Windows.Forms.Label();
             this.lbPalabraa = new System.Windows.Forms.Label();
-            this.btnBajaIdioma = new System.Windows.Forms.Button();
-            this.btnModificarIdioma = new System.Windows.Forms.Button();
-            this.grillaIdiomas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaIdiomas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaPalabras)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaTraducciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaIdiomas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,6 +76,39 @@ namespace UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "groupCrearNuevoIdioma";
             this.groupBox1.Text = "Crear nuevo idioma";
+            // 
+            // grillaIdiomas
+            // 
+            this.grillaIdiomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaIdiomas.Location = new System.Drawing.Point(25, 65);
+            this.grillaIdiomas.Name = "grillaIdiomas";
+            this.grillaIdiomas.ReadOnly = true;
+            this.grillaIdiomas.Size = new System.Drawing.Size(254, 124);
+            this.grillaIdiomas.TabIndex = 9;
+            this.grillaIdiomas.Tag = "grillaIdiomas";
+            this.grillaIdiomas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaIdiomas_CellContentClick);
+            // 
+            // btnModificarIdioma
+            // 
+            this.btnModificarIdioma.Location = new System.Drawing.Point(203, 195);
+            this.btnModificarIdioma.Name = "btnModificarIdioma";
+            this.btnModificarIdioma.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarIdioma.TabIndex = 8;
+            this.btnModificarIdioma.Tag = "btnModificarIdioma";
+            this.btnModificarIdioma.Text = "Modificar";
+            this.btnModificarIdioma.UseVisualStyleBackColor = true;
+            this.btnModificarIdioma.Click += new System.EventHandler(this.btnModificarIdioma_Click);
+            // 
+            // btnBajaIdioma
+            // 
+            this.btnBajaIdioma.Location = new System.Drawing.Point(113, 195);
+            this.btnBajaIdioma.Name = "btnBajaIdioma";
+            this.btnBajaIdioma.Size = new System.Drawing.Size(75, 23);
+            this.btnBajaIdioma.TabIndex = 7;
+            this.btnBajaIdioma.Tag = "btnBajaIdioma";
+            this.btnBajaIdioma.Text = "Baja";
+            this.btnBajaIdioma.UseVisualStyleBackColor = true;
+            this.btnBajaIdioma.Click += new System.EventHandler(this.btnBajaIdioma_Click);
             // 
             // txtNombre
             // 
@@ -181,6 +214,7 @@ namespace UI
             this.grillaPalabras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaPalabras.Location = new System.Drawing.Point(330, 47);
             this.grillaPalabras.Name = "grillaPalabras";
+            this.grillaPalabras.ReadOnly = true;
             this.grillaPalabras.Size = new System.Drawing.Size(300, 407);
             this.grillaPalabras.TabIndex = 7;
             this.grillaPalabras.Tag = "grillaPalabras";
@@ -207,6 +241,7 @@ namespace UI
             // 
             // comboIdiomas
             // 
+            this.comboIdiomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboIdiomas.FormattingEnabled = true;
             this.comboIdiomas.Location = new System.Drawing.Point(93, 39);
             this.comboIdiomas.Name = "comboIdiomas";
@@ -230,6 +265,7 @@ namespace UI
             this.grillaTraducciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaTraducciones.Location = new System.Drawing.Point(656, 47);
             this.grillaTraducciones.Name = "grillaTraducciones";
+            this.grillaTraducciones.ReadOnly = true;
             this.grillaTraducciones.Size = new System.Drawing.Size(228, 386);
             this.grillaTraducciones.TabIndex = 11;
             this.grillaTraducciones.Tag = "grillaPalabras";
@@ -301,38 +337,6 @@ namespace UI
             this.lbPalabraa.TabIndex = 17;
             this.lbPalabraa.Tag = "lbPalabraa";
             // 
-            // btnBajaIdioma
-            // 
-            this.btnBajaIdioma.Location = new System.Drawing.Point(113, 195);
-            this.btnBajaIdioma.Name = "btnBajaIdioma";
-            this.btnBajaIdioma.Size = new System.Drawing.Size(75, 23);
-            this.btnBajaIdioma.TabIndex = 7;
-            this.btnBajaIdioma.Tag = "btnBajaIdioma";
-            this.btnBajaIdioma.Text = "Baja";
-            this.btnBajaIdioma.UseVisualStyleBackColor = true;
-            this.btnBajaIdioma.Click += new System.EventHandler(this.btnBajaIdioma_Click);
-            // 
-            // btnModificarIdioma
-            // 
-            this.btnModificarIdioma.Location = new System.Drawing.Point(203, 195);
-            this.btnModificarIdioma.Name = "btnModificarIdioma";
-            this.btnModificarIdioma.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarIdioma.TabIndex = 8;
-            this.btnModificarIdioma.Tag = "btnModificarIdioma";
-            this.btnModificarIdioma.Text = "Modificar";
-            this.btnModificarIdioma.UseVisualStyleBackColor = true;
-            this.btnModificarIdioma.Click += new System.EventHandler(this.btnModificarIdioma_Click);
-            // 
-            // grillaIdiomas
-            // 
-            this.grillaIdiomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaIdiomas.Location = new System.Drawing.Point(25, 65);
-            this.grillaIdiomas.Name = "grillaIdiomas";
-            this.grillaIdiomas.Size = new System.Drawing.Size(254, 124);
-            this.grillaIdiomas.TabIndex = 9;
-            this.grillaIdiomas.Tag = "grillaIdiomas";
-            this.grillaIdiomas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaIdiomas_CellContentClick);
-            // 
             // frmCrearIdioma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,11 +357,11 @@ namespace UI
             this.Load += new System.EventHandler(this.frmCrearIdioma_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaIdiomas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaPalabras)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaTraducciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaIdiomas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

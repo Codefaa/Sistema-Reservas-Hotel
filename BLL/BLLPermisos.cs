@@ -15,9 +15,14 @@ namespace BLL
         {
             _permisos = new DALPermisos();
         }
-        public Array GetAllPermission()
+
+        public IList<BEComponenteSimple> GetAllPatentes()   //Leer patentes
         {
-            return _permisos.GetAllPermission();
+            return _permisos.GetAllPatentes();
+        }
+        public IList<BEComponente_compuesto> GetAllCompuestos()     //Leer familias
+        {
+            return _permisos.GetAllCompuestos();
         }
         public bool Existe(BEComposite c, int id)
         {
@@ -35,29 +40,24 @@ namespace BLL
                 }
 
             return existe;
-
         }
         public IList<BEComposite> GetAll(string familia)
         {
             return _permisos.GetAll(familia);
+        }
+        public Array GetAllPermission()
+        {
+            return _permisos.GetAllPermission();
+        }
 
-        }
 
-        public void GuardarFamilia(BEComponente_compuesto c)
-        {
-            _permisos.GuardarFamilia(c);
-        }
-        public IList<BEComponenteSimple> GetAllPatentes()
-        {
-            return _permisos.GetAllPatentes();
-        }
-        public IList<BEComponente_compuesto> GetAllCompuestos()
-        {
-            return _permisos.GetAllCompuestos();
-        }
         public BEComposite GuardarComponente(BEComposite p, bool esfamilia)
         {
             return _permisos.GuardarComponente(p, esfamilia);
+        }
+        public void GuardarFamilia(BEComponente_compuesto c)
+        {
+            _permisos.GuardarFamilia(c);
         }
         public void FillFamilyComponents(BEComponente_compuesto familia)
         {
@@ -68,7 +68,5 @@ namespace BLL
             _permisos.FillUserComponents(u);
 
         }
-
-
     }
 }

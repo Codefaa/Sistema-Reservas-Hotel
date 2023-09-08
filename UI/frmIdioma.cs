@@ -45,11 +45,7 @@ namespace UI
         }
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            Sesion.Idioma = (BEIdioma)comboIdiomas.SelectedItem;
-
-            Sesion.Idioma = BLLunIdioma.GenerarDiccionarios(Sesion.Idioma);
-
-            if(Sesion.Idioma != null)
+            if(BLLunIdioma.GenerarDiccionarios((BEIdioma)comboIdiomas.SelectedItem) != null)
             {
                 BLLBitacora BLLunaBitacora = new BLLBitacora();
                 Sesion sesion = Sesion.Instance;
