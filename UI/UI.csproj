@@ -151,6 +151,12 @@
     <Compile Include="frmPermisos.Designer.cs">
       <DependentUpon>frmPermisos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReservasLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservasLista.Designer.cs">
+      <DependentUpon>frmReservasLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuariosRoles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPermisos.resx">
       <DependentUpon>frmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservasLista.resx">
+      <DependentUpon>frmReservasLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuariosRoles.resx">
       <DependentUpon>frmUsuariosRoles.cs</DependentUpon>

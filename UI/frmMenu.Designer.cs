@@ -45,11 +45,13 @@ namespace UI
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.gestionDeRolesToolStripMenuItem,
@@ -59,14 +61,14 @@ namespace UI
             this.hotelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1399, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
             this.archivoToolStripMenuItem.Tag = "CerrarSesion";
             this.archivoToolStripMenuItem.Text = "Cerrar Sesion";
             this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
@@ -77,14 +79,14 @@ namespace UI
             this.familiasYPatentesToolStripMenuItem,
             this.asignarRolesToolStripMenuItem});
             this.gestionDeRolesToolStripMenuItem.Name = "gestionDeRolesToolStripMenuItem";
-            this.gestionDeRolesToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.gestionDeRolesToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.gestionDeRolesToolStripMenuItem.Tag = "GestionDeRoles";
             this.gestionDeRolesToolStripMenuItem.Text = "Gestion de roles";
             // 
             // familiasYPatentesToolStripMenuItem
             // 
             this.familiasYPatentesToolStripMenuItem.Name = "familiasYPatentesToolStripMenuItem";
-            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.familiasYPatentesToolStripMenuItem.Tag = "FamiliasYPatentes";
             this.familiasYPatentesToolStripMenuItem.Text = "Familias y patentes";
             this.familiasYPatentesToolStripMenuItem.Click += new System.EventHandler(this.familiasYPatentesToolStripMenuItem_Click);
@@ -92,7 +94,7 @@ namespace UI
             // asignarRolesToolStripMenuItem
             // 
             this.asignarRolesToolStripMenuItem.Name = "asignarRolesToolStripMenuItem";
-            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.asignarRolesToolStripMenuItem.Tag = "AsignarRoles";
             this.asignarRolesToolStripMenuItem.Text = "Asignar roles";
             this.asignarRolesToolStripMenuItem.Click += new System.EventHandler(this.asignarRolesToolStripMenuItem_Click);
@@ -102,14 +104,14 @@ namespace UI
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.controlDeCambiosToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Tag = "menuUsuarios";
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // controlDeCambiosToolStripMenuItem
             // 
             this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
-            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.controlDeCambiosToolStripMenuItem.Tag = "menuControlDeCambios";
             this.controlDeCambiosToolStripMenuItem.Text = "Control de cambios";
             this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
@@ -117,7 +119,7 @@ namespace UI
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.bitacoraToolStripMenuItem.Tag = "Bitacora";
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
@@ -128,14 +130,14 @@ namespace UI
             this.idiomaToolStripMenuItem,
             this.crearIdiomaToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Tag = "Opciones";
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
-            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.idiomaToolStripMenuItem.Tag = "Idioma";
             this.idiomaToolStripMenuItem.Text = "Idioma";
             this.idiomaToolStripMenuItem.Click += new System.EventHandler(this.idiomaToolStripMenuItem_Click);
@@ -143,7 +145,7 @@ namespace UI
             // crearIdiomaToolStripMenuItem
             // 
             this.crearIdiomaToolStripMenuItem.Name = "crearIdiomaToolStripMenuItem";
-            this.crearIdiomaToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.crearIdiomaToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.crearIdiomaToolStripMenuItem.Tag = "CrearIdioma";
             this.crearIdiomaToolStripMenuItem.Text = "Crear idioma";
             this.crearIdiomaToolStripMenuItem.Click += new System.EventHandler(this.crearIdiomaToolStripMenuItem_Click);
@@ -154,47 +156,56 @@ namespace UI
             this.recepcionToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.habitacionesToolStripMenuItem,
+            this.reservasToolStripMenuItem,
             this.reportesToolStripMenuItem});
             this.hotelToolStripMenuItem.Name = "hotelToolStripMenuItem";
-            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.hotelToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.hotelToolStripMenuItem.Text = "Hotel";
             // 
             // recepcionToolStripMenuItem
             // 
             this.recepcionToolStripMenuItem.Name = "recepcionToolStripMenuItem";
-            this.recepcionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.recepcionToolStripMenuItem.Text = "Recepcion";
             this.recepcionToolStripMenuItem.Click += new System.EventHandler(this.recepcionToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // habitacionesToolStripMenuItem
             // 
             this.habitacionesToolStripMenuItem.Name = "habitacionesToolStripMenuItem";
-            this.habitacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.habitacionesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.habitacionesToolStripMenuItem.Text = "Habitaciones";
             this.habitacionesToolStripMenuItem.Click += new System.EventHandler(this.habitacionesToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
+            // reservasToolStripMenuItem
+            // 
+            this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.reservasToolStripMenuItem.Text = "Reservas";
+            this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 520);
+            this.ClientSize = new System.Drawing.Size(1399, 640);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMenu";
             this.Text = "frmMenu";
             this.Load += new System.EventHandler(this.frmMenu_Load);
@@ -222,5 +233,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem habitacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
     }
 }

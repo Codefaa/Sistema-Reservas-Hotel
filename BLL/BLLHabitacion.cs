@@ -29,6 +29,10 @@ namespace BLL
         {
             dal.ModificarHabitacion(unaHabitacion);
         }
+        public void CambiarEstado(BEHabitacion unaHabitacion)
+        {
+            dal.CambiarEstado(unaHabitacion);
+        }
         public List<BEHabitacion> BuscarHabitacion(string pisoHabitacion)
         {
             return dal.BuscarHabitacion(pisoHabitacion);

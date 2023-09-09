@@ -154,6 +154,14 @@ namespace DAL
             hdatos.Add("@Estado", unaHabitacion.Estado);
             Escribir(consulta, hdatos);
         }
+        public void CambiarEstado(BEHabitacion unaHabitacion)
+        {
+            string consulta = "S_CambiarEstado_Habitacion";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@Estado", "Disponible");
+            hdatos.Add("@IDHabitacion", unaHabitacion.ID);
+            Escribir(consulta, hdatos);
+        }
         public List<BEHabitacion> BuscarHabitacion(string pisoHabitacion)
         {
             string consulta = "S_Buscar_Habitacion";

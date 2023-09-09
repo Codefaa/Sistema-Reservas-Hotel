@@ -32,6 +32,7 @@ namespace UI
         {
             frmHabitacion abrir = new frmHabitacion();
             abrir.Show();
+            this.Close();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

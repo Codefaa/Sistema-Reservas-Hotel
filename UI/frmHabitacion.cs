@@ -44,6 +44,8 @@ namespace UI
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            frmHabitaciones abrir = new frmHabitaciones();
+            abrir.Show();
             this.Close();
         }
 

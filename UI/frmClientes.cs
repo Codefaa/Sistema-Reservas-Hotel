@@ -46,6 +46,7 @@ namespace UI
         {
             frmCliente abrir = new frmCliente();
             abrir.Show();
+            this.Close();
         }
         private void btnBaja_Click(object sender, EventArgs e)
         {

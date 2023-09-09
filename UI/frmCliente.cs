@@ -32,10 +32,6 @@ namespace UI
 
                 BLLCliente bllCliente = new BLLCliente();
                 bllCliente.AgregarCliente(cliente);
-                
-                frmClientes instanciaClientes = new frmClientes();  //NO FUNCIONA. Necesito que actualice la grilla de clientes del otro formulario
-                List<BECliente> clientes = bllCliente.LeerClientes();
-                instanciaClientes.MostrarGrillaFormulario(clientes);
 
                 MessageBox.Show("Cliente Registrado con Exito!");
             }
@@ -47,6 +43,8 @@ namespace UI
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            frmClientes abrir = new frmClientes();
+            abrir.Show();
             this.Close();
         }
     }

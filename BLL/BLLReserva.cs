@@ -17,6 +17,14 @@ namespace BLL
         {
             dal.AgregarReserva(unaReserva);
         }
+        public void BajaReserva(BEReserva unaReserva)
+        {
+            dal.BajaReserva(unaReserva);
+        }
+        public void ModificarReserva(BEReserva unaReserva)
+        {
+            dal.ModificarReserva(unaReserva);
+        }
         public BEReserva BuscarReserva(BEHabitacion unaHabitacion)
         {
             return dal.BuscarReserva(unaHabitacion);

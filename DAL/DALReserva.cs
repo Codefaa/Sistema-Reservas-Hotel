@@ -149,6 +149,23 @@ namespace DAL
             hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
             Escribir(consulta, hdatos);
         }
+        public void BajaReserva(BEReserva unaReserva)
+        {
+            string consulta = "S_Baja_Reserva";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@IDCliente", unaReserva.unCliente.ID);
+            hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
+            Escribir(consulta, hdatos);
+        }
+        public void ModificarReserva(BEReserva unaReserva)
+        {
+            string consulta = "S_Modificar_Reserva";
+            Hashtable hdatos = new Hashtable();
+            hdatos.Add("@FechaSalida", unaReserva.FechaSalida);
+            hdatos.Add("@IDCliente", unaReserva.unCliente.ID);
+            hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
+            Escribir(consulta, hdatos);
+        }
         public BEReserva BuscarReserva(BEHabitacion unaReserva)
         {
             string consulta = "S_Buscar_Reserva";

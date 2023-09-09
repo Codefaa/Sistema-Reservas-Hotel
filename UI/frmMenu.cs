@@ -130,5 +130,12 @@ namespace UI
             abrir.MdiParent = this;
             abrir.Show();
         }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReservasLista abrir = new frmReservasLista();
+            abrir.MdiParent = this;
+            abrir.Show();
+        }
     }
 }
