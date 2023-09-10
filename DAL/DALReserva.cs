@@ -110,6 +110,9 @@ namespace DAL
                     reserva.FechaEntrada = Convert.ToDateTime(fila["FechaEntrada"]);
                     reserva.FechaSalida = Convert.ToDateTime(fila["FechaSalida"]);
                     reserva.Adelanto = Convert.ToDecimal(fila["Adelanto"]);
+                    reserva.Observacion = fila["Observacion"].ToString();
+                    reserva.PrecioFinal = Convert.ToDecimal(fila["PrecioFinal"]);
+                    reserva.Total = Convert.ToDecimal(fila["Total"]);
 
                     BEHabitacion habitacion = new BEHabitacion();
                     habitacion.ID = Convert.ToInt32(fila["IDHabitacion"]);
@@ -147,6 +150,9 @@ namespace DAL
             hdatos.Add("@Adelanto", unaReserva.Adelanto);
             hdatos.Add("@IDCliente", unaReserva.unCliente.ID);
             hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
+            hdatos.Add("@Observacion", unaReserva.Observacion);
+            hdatos.Add("@PrecioFinal", unaReserva.PrecioFinal);
+            hdatos.Add("@Total", unaReserva.Total);
             Escribir(consulta, hdatos);
         }
         public void BajaReserva(BEReserva unaReserva)
@@ -157,7 +163,7 @@ namespace DAL
             hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
             Escribir(consulta, hdatos);
         }
-        public void ModificarReserva(BEReserva unaReserva)
+        public void ModificarReserva(BEReserva unaReserva)      //FALTA MODIFICAR EL TOTAL
         {
             string consulta = "S_Modificar_Reserva";
             Hashtable hdatos = new Hashtable();
@@ -181,6 +187,9 @@ namespace DAL
                     reserva.FechaEntrada = Convert.ToDateTime(fila["FechaEntrada"]);
                     reserva.FechaSalida = Convert.ToDateTime(fila["FechaSalida"]);
                     reserva.Adelanto = Convert.ToDecimal(fila["Adelanto"]);
+                    reserva.Observacion = fila["Observacion"].ToString();
+                    reserva.PrecioFinal = Convert.ToDecimal(fila["PrecioFinal"]);
+                    reserva.Total = Convert.ToDecimal(fila["Total"]);
 
                     BEHabitacion habitacion = new BEHabitacion();
                     habitacion.ID = Convert.ToInt32(fila["IDHabitacion"]);

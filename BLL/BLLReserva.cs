@@ -33,5 +33,15 @@ namespace BLL
         {
             return dal.LeerReservas();
         }
+        public decimal CalcularPrecioFinal(BEReserva unaReserva)
+        {
+            TimeSpan diferencia = unaReserva.FechaSalida - unaReserva.FechaEntrada;
+            int diferenciaDias = diferencia.Days + 1;
+            return unaReserva.unaHabitacion.Precio * diferenciaDias;
+        }
+        public decimal CalcularTotal(BEReserva unaReserva)
+        {
+            return unaReserva.PrecioFinal - unaReserva.Adelanto;
+        }
     }
 }

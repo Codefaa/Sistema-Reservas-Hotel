@@ -195,6 +195,7 @@ namespace UI
             this.dateSalida.Name = "dateSalida";
             this.dateSalida.Size = new System.Drawing.Size(288, 20);
             this.dateSalida.TabIndex = 13;
+            this.dateSalida.ValueChanged += new System.EventHandler(this.dateSalida_ValueChanged);
             // 
             // label7
             // 

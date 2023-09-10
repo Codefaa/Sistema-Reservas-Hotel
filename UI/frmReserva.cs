@@ -14,11 +14,12 @@ namespace UI
 
         void DetallesHabitacion()
         {
+
             txtNumero.Text = frmRecepcion.reserva.unaHabitacion.Numero.ToString();
             txtCategoria.Text = frmRecepcion.reserva.unaHabitacion.Categoria;
             txtPrecio.Text = frmRecepcion.reserva.unaHabitacion.Precio.ToString();
             txtPiso.Text = frmRecepcion.reserva.unaHabitacion.Piso;
-            txtPrecio2.Text = frmRecepcion.reserva.unaHabitacion.Precio.ToString();
+            txtPrecio2.Text = CalcularPrecioFinal().ToString();
         }
 
         void CargarComboClientes()
@@ -58,6 +59,9 @@ namespace UI
                 frmRecepcion.reserva.FechaSalida = dateSalida.Value;
                 frmRecepcion.reserva.Adelanto = Convert.ToDecimal(txtAdelanto.Text);
                 frmRecepcion.reserva.unaHabitacion.Estado = "Ocupada";
+                frmRecepcion.reserva.Observacion = txtObservaciones.Text;
+                frmRecepcion.reserva.PrecioFinal = BLLReserva.CalcularPrecioFinal(frmRecepcion.reserva);
+                frmRecepcion.reserva.Total = BLLReserva.CalcularTotal(frmRecepcion.reserva);
 
                 BLLHabitacion.ModificarHabitacion(frmRecepcion.reserva.unaHabitacion);
                 BLLReserva.AgregarReserva(frmRecepcion.reserva);
@@ -65,6 +69,7 @@ namespace UI
                 MessageBox.Show("Reserva Registrada con Exito!");
 
                 CargarComboClientes();
+
             }
             catch (Exception ex)
             {
@@ -76,6 +81,28 @@ namespace UI
         {
             frmCliente abrir = new frmCliente();
             abrir.Show();
+        }
+
+        decimal CalcularPrecioFinal()
+        {
+            if(dateEntrada.Value < dateSalida.Value)
+            {
+                TimeSpan diferencia = dateSalida.Value - DateTime.Now;
+                int difenciaDias = diferencia.Days + 1;
+
+                return (difenciaDias * frmRecepcion.reserva.unaHabitacion.Precio);
+            }
+            else
+            {
+                MessageBox.Show("ERROR La fecha de salida nunca puede ser menor a la fecha de entrada");
+                return frmRecepcion.reserva.unaHabitacion.Precio;
+            }
+            
+        }
+
+        private void dateSalida_ValueChanged(object sender, EventArgs e)
+        {
+            txtPrecio2.Text = CalcularPrecioFinal().ToString();
         }
     }
 }

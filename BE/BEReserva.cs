@@ -10,7 +10,11 @@ namespace BE
     {
         public DateTime FechaEntrada { get; set; }
         public DateTime FechaSalida { get; set; }
+        public string Observacion { get; set; }
+        public decimal PrecioFinal { get; set; }
         public decimal Adelanto { get; set; }
+        public decimal Total { get; set; }
+
         public BECliente unCliente { get; set; }
         public BEHabitacion unaHabitacion { get; set; }
         public BEReserva()

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <title>Detalles de la reserva SRH</title>
+
+    <style>
+
+        body{
+            font-family: sans-serif;
+        }
+
+        header table{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .table-empresa, .table-empresa th, .table-empresa td{
+            padding: 5px;
+            border-collapse: collapse;
+        }
+
+        .table-ruc, .table-ruc th, .table-ruc td{
+            border: 1px solid #772637;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        .td-ruc{
+            background-color: #772637;
+            color: white;
+        }
+
+        section th{
+            border-bottom: 2px solid black;
+        }
+
+        section table{
+            
+            margin-bottom: 25px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+
+        <table style="width:100%">
+            <tr>
+                <td style="width:20%"></td>
+                <td style="width:60%">
+                    <table class="table-empresa">
+                        <tr><th>Sistema de Reservas Hotelero</th></tr>
+                        <tr><td>Inocencio Arias 3550</td></tr>
+                        <tr><td>011 4661-6986</td></tr>
+                    </table>
+                </td>
+                <td style="width:20%">
+                    <table class="table-ruc">
+                        <tr><th>RUC: 20993350023</th></tr>
+                        <tr><td class="td-ruc">Boleta de venta</td></tr>
+                        <tr><td>BOOO1-234</td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+    </header>
+
+
+    <section>
+
+        <table>
+            <tr><th>Datos del cliente</th></tr>
+            <tr><td>Nombre: @Nombre</td></tr>
+            <tr><td>Apellido: @Apellido</td></tr>
+            <tr><td>Correo: @Correo</td></tr>
+            <tr><td>DNI: @DNI</td></tr>
+        </table>
+
+
+
+
+
+        <table>
+            <tr><th>Datos de la habitacion</th></tr>
+            <tr><td>Numero: @Numero</td></tr>
+            <tr><td>Piso: @Piso</td></tr>
+            <tr><td>Categoria: @Categoria</td></tr>
+            <tr><td>Estado: @Estado</td></tr>
+            <tr><td>Precio por noche: $@Precio</td></tr>
+        </table>
+
+
+
+
+        <table>
+            <tr><th>Datos de la reserva</th></tr>
+            <tr><td>Fecha de entrada: @FechaEntrada</td></tr>
+            <tr><td>Fecha de salida: @FechaSalida</td></tr>
+            <tr><td>Observaciones: @Observacion</td></tr>
+            <tr><td>Precio final: $@Final</td></tr>
+            <tr><td>Adelanto: $@Adelanto</td></tr>
+            <tr><td>Total a pagar: $@Total</td></tr>
+        </table>
+
+    </section>
+
+</body>
+</html>
