@@ -14,12 +14,11 @@ namespace UI
 
         void DetallesHabitacion()
         {
-
             txtNumero.Text = frmRecepcion.reserva.unaHabitacion.Numero.ToString();
             txtCategoria.Text = frmRecepcion.reserva.unaHabitacion.Categoria;
             txtPrecio.Text = frmRecepcion.reserva.unaHabitacion.Precio.ToString();
             txtPiso.Text = frmRecepcion.reserva.unaHabitacion.Piso;
-            txtPrecio2.Text = CalcularPrecioFinal().ToString();
+            txtPrecio2.Text = frmRecepcion.reserva.unaHabitacion.Precio.ToString();
         }
 
         void CargarComboClientes()
@@ -57,11 +56,20 @@ namespace UI
                 frmRecepcion.reserva.unCliente = (BECliente)comboClientes.SelectedItem;
                 frmRecepcion.reserva.FechaEntrada = DateTime.Now;
                 frmRecepcion.reserva.FechaSalida = dateSalida.Value;
-                frmRecepcion.reserva.Adelanto = Convert.ToDecimal(txtAdelanto.Text);
-                frmRecepcion.reserva.unaHabitacion.Estado = "Ocupada";
+                
+                if(txtAdelanto.Text == string.Empty)
+                {
+                    frmRecepcion.reserva.Adelanto = 0;
+                }
+                else
+                {
+                    frmRecepcion.reserva.Adelanto = Convert.ToDecimal(txtAdelanto.Text);
+                }
+
                 frmRecepcion.reserva.Observacion = txtObservaciones.Text;
                 frmRecepcion.reserva.PrecioFinal = BLLReserva.CalcularPrecioFinal(frmRecepcion.reserva);
                 frmRecepcion.reserva.Total = BLLReserva.CalcularTotal(frmRecepcion.reserva);
+                frmRecepcion.reserva.unaHabitacion.Estado = "Ocupada";
 
                 BLLHabitacion.ModificarHabitacion(frmRecepcion.reserva.unaHabitacion);
                 BLLReserva.AgregarReserva(frmRecepcion.reserva);
@@ -69,6 +77,10 @@ namespace UI
                 MessageBox.Show("Reserva Registrada con Exito!");
 
                 CargarComboClientes();
+
+                frmRecepcion abrir = new frmRecepcion();
+                this.Close();
+                abrir.Show();
 
             }
             catch (Exception ex)
@@ -95,6 +107,7 @@ namespace UI
             else
             {
                 MessageBox.Show("ERROR La fecha de salida nunca puede ser menor a la fecha de entrada");
+                dateSalida.Value = dateEntrada.Value;
                 return frmRecepcion.reserva.unaHabitacion.Precio;
             }
             

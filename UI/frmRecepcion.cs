@@ -49,7 +49,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Esta habitacion no esta disponible por: " + reserva.unCliente.Nombre);
+                MessageBox.Show("Esta habitacion esta ocupada por: " + reserva.unCliente.Nombre);
             }
         }
 

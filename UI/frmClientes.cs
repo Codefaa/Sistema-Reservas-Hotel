@@ -67,10 +67,12 @@ namespace UI
             if (!grillaClientes.ReadOnly)
             {
                 grillaClientes.ReadOnly = true;
+                btnModificar.BackColor = Color.White;
             }
             else
             {
                 grillaClientes.ReadOnly = false;
+                btnModificar.BackColor = Color.Red;
             }
         }
 

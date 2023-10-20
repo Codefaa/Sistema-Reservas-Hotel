@@ -233,7 +233,7 @@ namespace DAL
             reader.Close();
             conexion.Close();
         }
-        public IList<BEComposite> GetAll(string familia)
+        public IList<BEComposite> GetAll(string familia) // Cambiar CADENA DE CONEXION 
         {
             var where = "is NULL";
 
@@ -244,7 +244,7 @@ namespace DAL
 
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
-            cs.DataSource = @".";
+            cs.DataSource = @"DESKTOP-D1HGMQE\SQLEXPRESS";
             cs.InitialCatalog = "BD SIGG";
             var cnn = new SqlConnection(cs.ConnectionString);
             cnn.Open();
