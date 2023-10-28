@@ -176,9 +176,9 @@ namespace UI
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.Size = new System.Drawing.Size(79, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Precio:";
+            this.label9.Text = "Precio a pagar:";
             // 
             // label8
             // 
@@ -242,9 +242,9 @@ namespace UI
             // txtPrecio
             // 
             this.txtPrecio.Enabled = false;
-            this.txtPrecio.Location = new System.Drawing.Point(66, 53);
+            this.txtPrecio.Location = new System.Drawing.Point(84, 53);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(237, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(219, 20);
             this.txtPrecio.TabIndex = 27;
             // 
             // txtCategoria
@@ -286,9 +286,9 @@ namespace UI
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(12, 60);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.Size = new System.Drawing.Size(73, 13);
             this.label13.TabIndex = 22;
-            this.label13.Text = "Precio:";
+            this.label13.Text = "Precio noche:";
             // 
             // label12
             // 

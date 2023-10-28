@@ -41,27 +41,52 @@ namespace UI
 
         private void grillaHabitaciones_DoubleClick(object sender, EventArgs e)
         {
-            if (reserva.unaHabitacion.Estado == "Disponible")
+            try
             {
-                frmReserva abrir = new frmReserva();
-                abrir.Show();
-                this.Close();
+                // BLLReserva bllReserva = new BLLReserva();
+                // reserva.unaHabitacion = (BEHabitacion)grillaHabitaciones.CurrentRow.DataBoundItem;
+
+                if(reserva.unaHabitacion != null)
+                {
+                    if (reserva.unaHabitacion.Estado == "Disponible")
+                    {
+                        frmReserva abrir = new frmReserva();
+                        abrir.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esta habitacion esta ocupada por: " + reserva.unCliente.Nombre);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una habitacion");
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Esta habitacion esta ocupada por: " + reserva.unCliente.Nombre);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void grillaHabitaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            BLLReserva bllReserva = new BLLReserva();
-            reserva.unaHabitacion = (BEHabitacion)grillaHabitaciones.CurrentRow.DataBoundItem;
-
-            BEReserva reservaNueva = bllReserva.BuscarReserva(reserva.unaHabitacion);
-            if(reservaNueva != null)
+            try
             {
-                reserva = reservaNueva;
+                BLLReserva bllReserva = new BLLReserva();
+                reserva.unaHabitacion = (BEHabitacion)grillaHabitaciones.CurrentRow.DataBoundItem;
+
+                BEReserva reservaNueva = bllReserva.BuscarReserva(reserva.unaHabitacion);
+                if (reservaNueva != null)
+                {
+                    reserva = reservaNueva;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

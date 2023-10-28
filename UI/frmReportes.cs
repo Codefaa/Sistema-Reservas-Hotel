@@ -49,6 +49,7 @@ namespace UI
             dateInicio.Value = reserva.FechaEntrada;
             dateFin.Value = reserva.FechaSalida;
             txtCliente.Text = reserva.unCliente.Nombre;
+            txtPrecioEstadia.Text = reserva.PrecioFinal.ToString();
             txtAdelanto.Text = reserva.Adelanto.ToString();
             txtTotalPagar.Text = reserva.Total.ToString();
         }

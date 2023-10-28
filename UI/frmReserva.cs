@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace UI
@@ -53,34 +54,48 @@ namespace UI
 
             try
             {
-                frmRecepcion.reserva.unCliente = (BECliente)comboClientes.SelectedItem;
-                frmRecepcion.reserva.FechaEntrada = DateTime.Now;
-                frmRecepcion.reserva.FechaSalida = dateSalida.Value;
-                
-                if(txtAdelanto.Text == string.Empty)
+                if(Regex.IsMatch(txtAdelanto.Text, "^([0-9]+$)") == true)
                 {
-                    frmRecepcion.reserva.Adelanto = 0;
+                    if (Convert.ToDecimal(txtAdelanto.Text) <= Convert.ToDecimal(txtPrecio2.Text))
+                    {
+                        frmRecepcion.reserva.unCliente = (BECliente)comboClientes.SelectedItem;
+                        frmRecepcion.reserva.FechaEntrada = DateTime.Now;
+                        frmRecepcion.reserva.FechaSalida = dateSalida.Value;
+
+                        if (txtAdelanto.Text == string.Empty)
+                        {
+                            frmRecepcion.reserva.Adelanto = 0;
+                        }
+                        else
+                        {
+                            frmRecepcion.reserva.Adelanto = Convert.ToDecimal(txtAdelanto.Text);
+                        }
+
+                        frmRecepcion.reserva.Observacion = txtObservaciones.Text;
+                        frmRecepcion.reserva.PrecioFinal = BLLReserva.CalcularPrecioFinal(frmRecepcion.reserva);
+                        frmRecepcion.reserva.Total = BLLReserva.CalcularTotal(frmRecepcion.reserva);
+                        frmRecepcion.reserva.unaHabitacion.Estado = "Ocupada";
+
+                        BLLHabitacion.ModificarHabitacion(frmRecepcion.reserva.unaHabitacion);
+                        BLLReserva.AgregarReserva(frmRecepcion.reserva);
+
+                        MessageBox.Show("Reserva Registrada con Exito!");
+
+                        CargarComboClientes();
+
+                        frmRecepcion abrir = new frmRecepcion();
+                        this.Close();
+                        abrir.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR - El adelanto no puede superar el precio");
+                    }
                 }
                 else
                 {
-                    frmRecepcion.reserva.Adelanto = Convert.ToDecimal(txtAdelanto.Text);
+                    MessageBox.Show("ERROR Solo puede ingregar numeros");
                 }
-
-                frmRecepcion.reserva.Observacion = txtObservaciones.Text;
-                frmRecepcion.reserva.PrecioFinal = BLLReserva.CalcularPrecioFinal(frmRecepcion.reserva);
-                frmRecepcion.reserva.Total = BLLReserva.CalcularTotal(frmRecepcion.reserva);
-                frmRecepcion.reserva.unaHabitacion.Estado = "Ocupada";
-
-                BLLHabitacion.ModificarHabitacion(frmRecepcion.reserva.unaHabitacion);
-                BLLReserva.AgregarReserva(frmRecepcion.reserva);
-
-                MessageBox.Show("Reserva Registrada con Exito!");
-
-                CargarComboClientes();
-
-                frmRecepcion abrir = new frmRecepcion();
-                this.Close();
-                abrir.Show();
 
             }
             catch (Exception ex)
@@ -102,7 +117,7 @@ namespace UI
                 TimeSpan diferencia = dateSalida.Value - DateTime.Now;
                 int difenciaDias = diferencia.Days + 1;
 
-                return (difenciaDias * frmRecepcion.reserva.unaHabitacion.Precio);
+                return ((difenciaDias * 500) + frmRecepcion.reserva.unaHabitacion.Precio);
             }
             else
             {

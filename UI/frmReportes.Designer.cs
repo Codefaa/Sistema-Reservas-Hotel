@@ -30,6 +30,12 @@ namespace UI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAdelanto = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotalPagar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnDescargar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dateFin = new System.Windows.Forms.DateTimePicker();
@@ -37,17 +43,15 @@ namespace UI
             this.label3 = new System.Windows.Forms.Label();
             this.dateInicio = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.txtTotalPagar = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAdelanto = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrecioEstadia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPrecioEstadia);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtAdelanto);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTotalPagar);
@@ -63,16 +67,67 @@ namespace UI
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 123);
+            this.groupBox1.Size = new System.Drawing.Size(845, 123);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de Alquiler";
             // 
+            // txtAdelanto
+            // 
+            this.txtAdelanto.Enabled = false;
+            this.txtAdelanto.Location = new System.Drawing.Point(410, 94);
+            this.txtAdelanto.Name = "txtAdelanto";
+            this.txtAdelanto.Size = new System.Drawing.Size(200, 20);
+            this.txtAdelanto.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(407, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Adelanto";
+            // 
+            // txtTotalPagar
+            // 
+            this.txtTotalPagar.Enabled = false;
+            this.txtTotalPagar.Location = new System.Drawing.Point(630, 94);
+            this.txtTotalPagar.Name = "txtTotalPagar";
+            this.txtTotalPagar.Size = new System.Drawing.Size(200, 20);
+            this.txtTotalPagar.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(627, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Total a pagar";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Enabled = false;
+            this.txtCliente.Location = new System.Drawing.Point(12, 94);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(164, 20);
+            this.txtCliente.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Cliente";
+            // 
             // btnDescargar
             // 
-            this.btnDescargar.Location = new System.Drawing.Point(618, 48);
+            this.btnDescargar.Location = new System.Drawing.Point(630, 48);
             this.btnDescargar.Name = "btnDescargar";
-            this.btnDescargar.Size = new System.Drawing.Size(151, 23);
+            this.btnDescargar.Size = new System.Drawing.Size(126, 23);
             this.btnDescargar.TabIndex = 7;
             this.btnDescargar.Text = "Descargar";
             this.btnDescargar.UseVisualStyleBackColor = true;
@@ -131,62 +186,28 @@ namespace UI
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha Inicio:";
             // 
-            // label4
+            // txtPrecioEstadia
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cliente";
+            this.txtPrecioEstadia.Enabled = false;
+            this.txtPrecioEstadia.Location = new System.Drawing.Point(190, 94);
+            this.txtPrecioEstadia.Name = "txtPrecioEstadia";
+            this.txtPrecioEstadia.Size = new System.Drawing.Size(200, 20);
+            this.txtPrecioEstadia.TabIndex = 15;
             // 
-            // txtCliente
+            // label7
             // 
-            this.txtCliente.Enabled = false;
-            this.txtCliente.Location = new System.Drawing.Point(12, 94);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(164, 20);
-            this.txtCliente.TabIndex = 9;
-            // 
-            // txtTotalPagar
-            // 
-            this.txtTotalPagar.Enabled = false;
-            this.txtTotalPagar.Location = new System.Drawing.Point(410, 94);
-            this.txtTotalPagar.Name = "txtTotalPagar";
-            this.txtTotalPagar.Size = new System.Drawing.Size(200, 20);
-            this.txtTotalPagar.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(407, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Total a pagar";
-            // 
-            // txtAdelanto
-            // 
-            this.txtAdelanto.Enabled = false;
-            this.txtAdelanto.Location = new System.Drawing.Point(190, 94);
-            this.txtAdelanto.Name = "txtAdelanto";
-            this.txtAdelanto.Size = new System.Drawing.Size(200, 20);
-            this.txtAdelanto.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(187, 78);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Adelanto";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(187, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Precio estadia";
             // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 148);
+            this.ClientSize = new System.Drawing.Size(862, 148);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmReportes";
             this.Text = " ";
@@ -213,5 +234,7 @@ namespace UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAdelanto;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPrecioEstadia;
+        private System.Windows.Forms.Label label7;
     }
 }

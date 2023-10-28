@@ -43,8 +43,6 @@ namespace UI
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            frmClientes abrir = new frmClientes();
-            abrir.Show();
             this.Close();
         }
     }
