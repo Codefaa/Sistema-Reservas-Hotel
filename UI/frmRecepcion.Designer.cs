@@ -65,6 +65,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 2;
+            this.label1.Tag = "";
             this.label1.Text = "Seleccionar el Nivel/Piso";
             // 
             // grillaHabitaciones

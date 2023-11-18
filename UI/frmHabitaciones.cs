@@ -61,8 +61,16 @@ namespace UI
         {
             try
             {
-                bllHabitacion.BajaHabitacion(habitacion);
-                MostrarGrilla();
+                if (habitacion != null)
+                {
+                    bllHabitacion.BajaHabitacion(habitacion);
+                    MostrarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una habitacion");
+                }
+                    
             }
             catch(Exception ex)
             {

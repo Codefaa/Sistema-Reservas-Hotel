@@ -92,15 +92,22 @@ namespace UI
 
         private void comboPiso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string pisoHabitacion = comboPiso.Text;
+            try
+            {
+                string pisoHabitacion = comboPiso.Text;
 
-            if(pisoHabitacion == "Todos")
-            {
-                MostrarGrilla();
+                if (pisoHabitacion == "Todos")
+                {
+                    MostrarGrilla();
+                }
+                else
+                {
+                    grillaHabitaciones.DataSource = bllHabitacion.BuscarHabitacion(pisoHabitacion);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                grillaHabitaciones.DataSource = bllHabitacion.BuscarHabitacion(pisoHabitacion); 
+                MessageBox.Show(ex.Message);
             }
         }
     }

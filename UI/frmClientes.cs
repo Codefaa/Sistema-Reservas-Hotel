@@ -52,9 +52,16 @@ namespace UI
         {
             try
             {
-                bllCliente.BajaCliente(cliente);
+                if(cliente != null)
+                {
+                    bllCliente.BajaCliente(cliente);
 
-                MostrarGrilla();
+                    MostrarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un cliente");
+                }
             }
             catch(Exception ex)
             {
@@ -88,9 +95,16 @@ namespace UI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string nombreCliente = txtNombre.Text;
+            try
+            {
+                string nombreCliente = txtNombre.Text;
 
-            grillaClientes.DataSource = bllCliente.BuscarCliente(nombreCliente);
+                grillaClientes.DataSource = bllCliente.BuscarCliente(nombreCliente);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

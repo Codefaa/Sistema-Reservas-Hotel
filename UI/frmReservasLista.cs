@@ -60,13 +60,27 @@ namespace UI
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            BLLHabitacion bllHabitacion = new BLLHabitacion();
-            bllHabitacion.CambiarEstado(reserva.unaHabitacion);
+            try
+            {
+                if(reserva != null)
+                {
+                    BLLHabitacion bllHabitacion = new BLLHabitacion();
+                    bllHabitacion.CambiarEstado(reserva.unaHabitacion);
 
-            bllReservas.BajaReserva(reserva);
-            MostrarGrillaReservas();
+                    bllReservas.BajaReserva(reserva);
+                    MostrarGrillaReservas();
 
-            MessageBox.Show("Se dio de baja la reserva");
+                    MessageBox.Show("Se dio de baja la reserva");
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una reserva");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

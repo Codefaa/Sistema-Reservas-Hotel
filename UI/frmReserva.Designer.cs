@@ -258,9 +258,9 @@ namespace UI
             // txtNumero
             // 
             this.txtNumero.Enabled = false;
-            this.txtNumero.Location = new System.Drawing.Point(66, 25);
+            this.txtNumero.Location = new System.Drawing.Point(84, 25);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(237, 20);
+            this.txtNumero.Size = new System.Drawing.Size(219, 20);
             this.txtNumero.TabIndex = 25;
             // 
             // label15

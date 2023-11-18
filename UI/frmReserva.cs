@@ -54,7 +54,7 @@ namespace UI
 
             try
             {
-                if(Regex.IsMatch(txtAdelanto.Text, "^([0-9]+$)") == true)
+                if(Regex.IsMatch(txtAdelanto.Text, "^([0-9]+$)") == true || txtAdelanto.Text == string.Empty)
                 {
                     if (Convert.ToDecimal(txtAdelanto.Text) <= Convert.ToDecimal(txtPrecio2.Text))
                     {
@@ -112,7 +112,7 @@ namespace UI
 
         decimal CalcularPrecioFinal()
         {
-            if(dateEntrada.Value < dateSalida.Value)
+            if (dateEntrada.Value < dateSalida.Value)
             {
                 TimeSpan diferencia = dateSalida.Value - DateTime.Now;
                 int difenciaDias = diferencia.Days + 1;
@@ -125,12 +125,18 @@ namespace UI
                 dateSalida.Value = dateEntrada.Value;
                 return frmRecepcion.reserva.unaHabitacion.Precio;
             }
-            
         }
 
         private void dateSalida_ValueChanged(object sender, EventArgs e)
         {
-            txtPrecio2.Text = CalcularPrecioFinal().ToString();
+            try
+            {
+                txtPrecio2.Text = CalcularPrecioFinal().ToString();
+            }
+            catch(Exception ex) 
+            { 
+                MessageBox.Show(ex.Message); 
+            }
         }
     }
 }
