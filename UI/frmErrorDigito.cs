@@ -24,5 +24,10 @@ namespace UI
 
             user.regenerarDigito();
         }
+
+        private void frmErrorDigito_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

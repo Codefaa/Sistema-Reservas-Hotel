@@ -163,11 +163,13 @@ namespace DAL
             hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
             Escribir(consulta, hdatos);
         }
-        public void ModificarReserva(BEReserva unaReserva)      //FALTA MODIFICAR EL TOTAL
+        public void ModificarReserva(BEReserva unaReserva)      
         {
             string consulta = "S_Modificar_Reserva";
             Hashtable hdatos = new Hashtable();
             hdatos.Add("@FechaSalida", unaReserva.FechaSalida);
+            hdatos.Add("@PrecioFinal", unaReserva.PrecioFinal);
+            hdatos.Add("@Total", unaReserva.Total);
             hdatos.Add("@IDCliente", unaReserva.unCliente.ID);
             hdatos.Add("@IDHabitacion", unaReserva.unaHabitacion.ID);
             Escribir(consulta, hdatos);

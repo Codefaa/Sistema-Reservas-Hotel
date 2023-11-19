@@ -70,6 +70,7 @@ namespace UI
             this.MinimizeBox = false;
             this.Name = "frmErrorDigito";
             this.Text = "frmErrorDigito";
+            this.Load += new System.EventHandler(this.frmErrorDigito_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

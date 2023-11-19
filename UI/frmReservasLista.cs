@@ -40,16 +40,36 @@ namespace UI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            reserva.FechaSalida = dateFechaSalida.Value;
+            try
+            {
+                if(reserva.FechaEntrada < dateFechaSalida.Value)
+                {
+                    reserva.FechaSalida = dateFechaSalida.Value;
+                    reserva.PrecioFinal = bllReservas.CalcularPrecioFinal(reserva);
+                    reserva.Total = bllReservas.CalcularTotal(reserva);
 
-            bllReservas.ModificarReserva(reserva);
+                    bllReservas.ModificarReserva(reserva);  // Faltaria agregar un campo VUELTO por si la fecha de salida termina modificando el precio final a un precio menor al de adelanto.
 
-            MostrarGrillaReservas();
+                    MostrarGrillaReservas();
+
+                    MessageBox.Show("Se modifico la fecha de salida de la reserva");
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de salida no puede ser menor a la fecha de entrada");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void grillaReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             reserva = (BEReserva)grillaReservas.CurrentRow.DataBoundItem;
+
+            dateFechaSalida.Value = reserva.FechaSalida;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

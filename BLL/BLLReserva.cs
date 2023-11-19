@@ -37,11 +37,22 @@ namespace BLL
         {
             TimeSpan diferencia = unaReserva.FechaSalida - unaReserva.FechaEntrada;
             int diferenciaDias = diferencia.Days + 1;
-            return unaReserva.unaHabitacion.Precio * diferenciaDias;
+            return ((diferenciaDias * 500) + unaReserva.unaHabitacion.Precio);
         }
         public decimal CalcularTotal(BEReserva unaReserva)
         {
-            return unaReserva.PrecioFinal - unaReserva.Adelanto;
+            decimal total = 0;
+
+            if (unaReserva.Adelanto < unaReserva.PrecioFinal)
+            {
+                 total = unaReserva.PrecioFinal - unaReserva.Adelanto;
+            }
+            else
+            {
+                total = 0;
+            }
+
+            return total;
         }
     }
 }

@@ -33,29 +33,29 @@ namespace UI
         {
             try
             {
-                if (Regex.IsMatch(txtPrecio.Text, "^([0-9]+$)") == true) //FALTA AGREGAR QUE VALIDE NUMEROS REALES
+                if (Regex.IsMatch(numNumero.Value.ToString(), "^([0-9]+$)") == true)
                 {
-                    if(Regex.IsMatch(numNumero.Value.ToString(), "^([0-9]+$)") == true)
+                    if (Regex.IsMatch(txtPrecio.Text, "^([0-9]+(,[0-9]+)?)$") == true)
                     {
                         BEHabitacion habitacion = new BEHabitacion();
-                        habitacion.Numero = Convert.ToInt32(numNumero.Value);
-                        habitacion.Precio = Convert.ToDecimal(txtPrecio.Text);  //ARREGLAR: ME REDONDE EL EL VALOR DECIMAL 
-                        habitacion.Categoria = comboCategoria.SelectedItem.ToString();
-                        habitacion.Piso = comboPiso.SelectedItem.ToString();
+                           habitacion.Numero = Convert.ToInt32(numNumero.Value);
+                           habitacion.Precio = Convert.ToDecimal(txtPrecio.Text);  
+                           habitacion.Categoria = comboCategoria.SelectedItem.ToString();
+                           habitacion.Piso = comboPiso.SelectedItem.ToString();
 
-                        BLLHabitacion bllHabitacion = new BLLHabitacion();
-                        bllHabitacion.AgregarHabitacion(habitacion);
+                           BLLHabitacion bllHabitacion = new BLLHabitacion();
+                           bllHabitacion.AgregarHabitacion(habitacion);
 
-                        MessageBox.Show("Habitacion Registrado con Exito!");
+                           MessageBox.Show("Habitacion Registrado con Exito!");
                     }
                     else
                     {
-                        MessageBox.Show("Ingrese un NUMERO valido");
+                        MessageBox.Show("Ingrese un PRECIO valido");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese un PRECIO valido");
+                    MessageBox.Show("Ingrese un NUMERO valido");
                 }
             }
             catch (Exception ex)

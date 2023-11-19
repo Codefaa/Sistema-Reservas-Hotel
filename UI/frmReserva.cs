@@ -54,7 +54,7 @@ namespace UI
 
             try
             {
-                if(Regex.IsMatch(txtAdelanto.Text, "^([0-9]+$)") == true || txtAdelanto.Text == string.Empty)
+                if (Regex.IsMatch(txtAdelanto.Text, "^([0-9]+(,[0-9]+)?)$") == true)
                 {
                     if (Convert.ToDecimal(txtAdelanto.Text) <= Convert.ToDecimal(txtPrecio2.Text))
                     {
@@ -94,7 +94,7 @@ namespace UI
                 }
                 else
                 {
-                    MessageBox.Show("ERROR Solo puede ingregar numeros");
+                    MessageBox.Show("Ingrese un ADELANTO valido");
                 }
 
             }

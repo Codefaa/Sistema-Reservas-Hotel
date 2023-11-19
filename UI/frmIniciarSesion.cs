@@ -2,24 +2,27 @@
 using BLL;
 using System;
 using System.Windows.Forms;
+
 namespace UI
 {
     public partial class frmIniciarSesion : Form
     {
         public frmIniciarSesion()
         {
-            BLLUser bllU = new BLLUser();
+            //BLLUser bllU = new BLLUser();
 
-            if (!bllU.validarDigito())
-            {
-                Hide();
-                frmErrorDigito frmError = new frmErrorDigito();
-                frmError.ShowDialog(this);
-            }
-            else 
-            { 
-                InitializeComponent();  // RECORDATORIO: Cuando salga devuelta el ErrorDigito, mover esta funcion dentro del If verdadero....
-            }
+            //if (!bllU.validarDigito())
+            //{
+            //    Hide();
+            //    frmErrorDigito frmError = new frmErrorDigito();
+            //    frmError.ShowDialog(this);
+            //}
+            //else 
+            //{ 
+            //    InitializeComponent();  // RECORDATORIO: Cuando salga devuelta el ErrorDigito, mover esta funcion dentro del If verdadero....
+            //}
+
+            InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
