@@ -37,16 +37,23 @@ namespace UI
                 {
                     if (Regex.IsMatch(txtPrecio.Text, "^([0-9]+(,[0-9]+)?)$") == true)
                     {
-                        BEHabitacion habitacion = new BEHabitacion();
-                           habitacion.Numero = Convert.ToInt32(numNumero.Value);
-                           habitacion.Precio = Convert.ToDecimal(txtPrecio.Text);  
-                           habitacion.Categoria = comboCategoria.SelectedItem.ToString();
-                           habitacion.Piso = comboPiso.SelectedItem.ToString();
+                        if (Convert.ToDecimal(txtPrecio.Text) >= 1000)
+                        {
+                            BEHabitacion habitacion = new BEHabitacion();
+                            habitacion.Numero = Convert.ToInt32(numNumero.Value);
+                            habitacion.Precio = Convert.ToDecimal(txtPrecio.Text);
+                            habitacion.Categoria = comboCategoria.SelectedItem.ToString();
+                            habitacion.Piso = comboPiso.SelectedItem.ToString();
 
-                           BLLHabitacion bllHabitacion = new BLLHabitacion();
-                           bllHabitacion.AgregarHabitacion(habitacion);
+                            BLLHabitacion bllHabitacion = new BLLHabitacion();
+                            bllHabitacion.AgregarHabitacion(habitacion);
 
-                           MessageBox.Show("Habitacion Registrado con Exito!");
+                            MessageBox.Show("Habitacion Registrado con Exito!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ingrese un PRECIO mayor a 1000");
+                        }
                     }
                     else
                     {
