@@ -244,8 +244,8 @@ namespace DAL
 
             var cs = new SqlConnectionStringBuilder();
             cs.IntegratedSecurity = true;
-            cs.DataSource = @"DESKTOP-D1HGMQE\SQLEXPRESS";
-            cs.InitialCatalog = "BD SIGG";
+            cs.DataSource = @".";
+            cs.InitialCatalog = "BDSRH";
             var cnn = new SqlConnection(cs.ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();

@@ -49,12 +49,13 @@ namespace UI
             this.groupBox1.Controls.Add(this.btnBaja);
             this.groupBox1.Controls.Add(this.grillaReservas);
             this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(761, 414);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "ListaReservas";
             this.groupBox1.Text = "Lista Reservas";
             // 
             // label1
@@ -63,25 +64,28 @@ namespace UI
             this.label1.Location = new System.Drawing.Point(14, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Fecha Limite";
+            this.label1.Tag = "lbFechaLimite";
+            this.label1.Text = "Fecha Limite:";
             // 
             // dateFechaSalida
             // 
             this.dateFechaSalida.Location = new System.Drawing.Point(109, 28);
-            this.dateFechaSalida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateFechaSalida.Margin = new System.Windows.Forms.Padding(2);
             this.dateFechaSalida.Name = "dateFechaSalida";
             this.dateFechaSalida.Size = new System.Drawing.Size(192, 20);
             this.dateFechaSalida.TabIndex = 5;
+            this.dateFechaSalida.Tag = "dateFechaSalida";
             // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(605, 388);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(62, 21);
             this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Tag = "btnAgregar";
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -89,10 +93,11 @@ namespace UI
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(322, 27);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(69, 21);
             this.btnModificar.TabIndex = 3;
+            this.btnModificar.Tag = "btnModificar";
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -100,10 +105,11 @@ namespace UI
             // btnBaja
             // 
             this.btnBaja.Location = new System.Drawing.Point(685, 388);
-            this.btnBaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBaja.Margin = new System.Windows.Forms.Padding(2);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(62, 21);
             this.btnBaja.TabIndex = 2;
+            this.btnBaja.Tag = "btnBaja";
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
@@ -112,13 +118,14 @@ namespace UI
             // 
             this.grillaReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaReservas.Location = new System.Drawing.Point(14, 58);
-            this.grillaReservas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grillaReservas.Margin = new System.Windows.Forms.Padding(2);
             this.grillaReservas.Name = "grillaReservas";
             this.grillaReservas.ReadOnly = true;
             this.grillaReservas.RowHeadersWidth = 51;
             this.grillaReservas.RowTemplate.Height = 24;
             this.grillaReservas.Size = new System.Drawing.Size(733, 323);
             this.grillaReservas.TabIndex = 1;
+            this.grillaReservas.Tag = "grillaReservas";
             this.grillaReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaReservas_CellContentClick);
             // 
             // frmReservasLista
@@ -127,7 +134,7 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 433);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmReservasLista";
             this.Text = "frmReservasLista";
             this.Load += new System.EventHandler(this.frmReservasLista_Load);

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using BE;
 using BLL;
+using Abstraccion;
+using Servicios;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -19,7 +21,7 @@ using System.IO;
 
 namespace UI
 {
-    public partial class frmReportes : Form
+    public partial class frmReportes : Form, IObservador
     {
         public frmReportes()
         {
@@ -37,10 +39,35 @@ namespace UI
             comboHabitaciones.DataSource = bllReserva.LeerReservas();
         }
 
+
+
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
         private void frmReportes_Load(object sender, EventArgs e)
         {
             MostrarCombo();
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
         }
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+
+        #endregion
 
         private void comboHabitaciones_SelectedIndexChanged(object sender, EventArgs e)
         {

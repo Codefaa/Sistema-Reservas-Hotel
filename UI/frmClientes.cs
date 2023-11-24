@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 using BE;
 using BLL;
+using Abstraccion;
+using Servicios;
 
 namespace UI
 {
-    public partial class frmClientes : Form
+    public partial class frmClientes : Form, IObservador
     {
         public frmClientes()
         {
@@ -37,10 +39,36 @@ namespace UI
             grillaClientes.DataSource = clientes;
         }
 
+
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
         private void frmListaClientes_Load(object sender, EventArgs e)
         {
             MostrarGrilla();
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
         }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {

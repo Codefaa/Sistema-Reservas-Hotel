@@ -47,6 +47,7 @@ namespace UI
             this.groupBox1.Size = new System.Drawing.Size(775, 406);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "groupRecepcion";
             // 
             // comboPiso
             // 
@@ -56,6 +57,7 @@ namespace UI
             this.comboPiso.Name = "comboPiso";
             this.comboPiso.Size = new System.Drawing.Size(241, 21);
             this.comboPiso.TabIndex = 3;
+            this.comboPiso.Tag = "comboPisos";
             this.comboPiso.SelectedIndexChanged += new System.EventHandler(this.comboPiso_SelectedIndexChanged);
             // 
             // label1
@@ -65,7 +67,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 2;
-            this.label1.Tag = "";
+            this.label1.Tag = "SeleccionarElNivelPiso";
             this.label1.Text = "Seleccionar el Nivel/Piso";
             // 
             // grillaHabitaciones
@@ -76,6 +78,7 @@ namespace UI
             this.grillaHabitaciones.ReadOnly = true;
             this.grillaHabitaciones.Size = new System.Drawing.Size(730, 339);
             this.grillaHabitaciones.TabIndex = 1;
+            this.grillaHabitaciones.Tag = "grillaHabitaciones";
             this.grillaHabitaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaHabitaciones_CellContentClick);
             this.grillaHabitaciones.DoubleClick += new System.EventHandler(this.grillaHabitaciones_DoubleClick);
             // 

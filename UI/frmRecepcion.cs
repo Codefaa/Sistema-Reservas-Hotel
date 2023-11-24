@@ -3,9 +3,12 @@ using BLL;
 using System;
 using System.Windows.Forms;
 
+using Abstraccion;
+using Servicios;
+
 namespace UI
 {
-    public partial class frmRecepcion : Form
+    public partial class frmRecepcion : Form, IObservador
     {
         public frmRecepcion()
         {
@@ -33,11 +36,35 @@ namespace UI
             Quinto
         }
 
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
         private void frmRecepcion_Load(object sender, EventArgs e)
         {
             MostrarGrilla();
             comboPiso.DataSource = Enum.GetValues(typeof(ePiso));
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
         }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+
+        #endregion
 
         private void grillaHabitaciones_DoubleClick(object sender, EventArgs e)
         {

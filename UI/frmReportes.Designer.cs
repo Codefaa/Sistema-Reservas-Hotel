@@ -30,6 +30,8 @@ namespace UI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPrecioEstadia = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtAdelanto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@ namespace UI
             this.label3 = new System.Windows.Forms.Label();
             this.dateInicio = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPrecioEstadia = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,27 @@ namespace UI
             this.groupBox1.Size = new System.Drawing.Size(845, 123);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "RegistroDeAlquiler";
             this.groupBox1.Text = "Registro de Alquiler";
+            // 
+            // txtPrecioEstadia
+            // 
+            this.txtPrecioEstadia.Enabled = false;
+            this.txtPrecioEstadia.Location = new System.Drawing.Point(190, 94);
+            this.txtPrecioEstadia.Name = "txtPrecioEstadia";
+            this.txtPrecioEstadia.Size = new System.Drawing.Size(200, 20);
+            this.txtPrecioEstadia.TabIndex = 15;
+            this.txtPrecioEstadia.Tag = "txtPrecioEstadia";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(187, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Tag = "lbPrecioEstadia";
+            this.label7.Text = "Precio estadia";
             // 
             // txtAdelanto
             // 
@@ -79,6 +99,7 @@ namespace UI
             this.txtAdelanto.Name = "txtAdelanto";
             this.txtAdelanto.Size = new System.Drawing.Size(200, 20);
             this.txtAdelanto.TabIndex = 13;
+            this.txtAdelanto.Tag = "txtAdelanto";
             // 
             // label6
             // 
@@ -87,6 +108,7 @@ namespace UI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 12;
+            this.label6.Tag = "lbAdelanto";
             this.label6.Text = "Adelanto";
             // 
             // txtTotalPagar
@@ -96,6 +118,7 @@ namespace UI
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.Size = new System.Drawing.Size(200, 20);
             this.txtTotalPagar.TabIndex = 11;
+            this.txtTotalPagar.Tag = "txtTotalPagar";
             // 
             // label5
             // 
@@ -104,6 +127,7 @@ namespace UI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 10;
+            this.label5.Tag = "lbTotalAPagar";
             this.label5.Text = "Total a pagar";
             // 
             // txtCliente
@@ -113,6 +137,7 @@ namespace UI
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(164, 20);
             this.txtCliente.TabIndex = 9;
+            this.txtCliente.Tag = "txtCliente";
             // 
             // label4
             // 
@@ -121,6 +146,7 @@ namespace UI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 8;
+            this.label4.Tag = "lbCliente";
             this.label4.Text = "Cliente";
             // 
             // btnDescargar
@@ -129,6 +155,7 @@ namespace UI
             this.btnDescargar.Name = "btnDescargar";
             this.btnDescargar.Size = new System.Drawing.Size(126, 23);
             this.btnDescargar.TabIndex = 7;
+            this.btnDescargar.Tag = "btnDescargar";
             this.btnDescargar.Text = "Descargar";
             this.btnDescargar.UseVisualStyleBackColor = true;
             this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
@@ -140,6 +167,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "lbNumeroHabitacion";
             this.label1.Text = "Numero Habitacion:";
             // 
             // dateFin
@@ -149,6 +177,7 @@ namespace UI
             this.dateFin.Name = "dateFin";
             this.dateFin.Size = new System.Drawing.Size(200, 20);
             this.dateFin.TabIndex = 5;
+            this.dateFin.Tag = "dateFechaInicio";
             // 
             // comboHabitaciones
             // 
@@ -158,6 +187,7 @@ namespace UI
             this.comboHabitaciones.Name = "comboHabitaciones";
             this.comboHabitaciones.Size = new System.Drawing.Size(164, 21);
             this.comboHabitaciones.TabIndex = 6;
+            this.comboHabitaciones.Tag = "comboNumeros";
             this.comboHabitaciones.SelectedIndexChanged += new System.EventHandler(this.comboHabitaciones_SelectedIndexChanged);
             // 
             // label3
@@ -165,9 +195,10 @@ namespace UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(407, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Fecha FIn:";
+            this.label3.Tag = "lbFechaFin";
+            this.label3.Text = "Fecha Fin:";
             // 
             // dateInicio
             // 
@@ -176,6 +207,7 @@ namespace UI
             this.dateInicio.Name = "dateInicio";
             this.dateInicio.Size = new System.Drawing.Size(200, 20);
             this.dateInicio.TabIndex = 4;
+            this.dateInicio.Tag = "dateFechaFin";
             // 
             // label2
             // 
@@ -184,24 +216,8 @@ namespace UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 2;
+            this.label2.Tag = "lbFechaInicio";
             this.label2.Text = "Fecha Inicio:";
-            // 
-            // txtPrecioEstadia
-            // 
-            this.txtPrecioEstadia.Enabled = false;
-            this.txtPrecioEstadia.Location = new System.Drawing.Point(190, 94);
-            this.txtPrecioEstadia.Name = "txtPrecioEstadia";
-            this.txtPrecioEstadia.Size = new System.Drawing.Size(200, 20);
-            this.txtPrecioEstadia.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(187, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Precio estadia";
             // 
             // frmReportes
             // 

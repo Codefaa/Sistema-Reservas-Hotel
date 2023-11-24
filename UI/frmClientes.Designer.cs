@@ -30,6 +30,7 @@ namespace UI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@ namespace UI
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grillaClientes = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +57,19 @@ namespace UI
             this.groupBox1.Size = new System.Drawing.Size(586, 447);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "ListaDeClientes";
             this.groupBox1.Text = "Lista de Clientes";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(342, 25);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(112, 23);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Tag = "btnActualizarLista";
+            this.btnActualizar.Text = "Actualizar Lista";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -65,6 +77,7 @@ namespace UI
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Tag = "btnAgregar";
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -75,6 +88,7 @@ namespace UI
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(75, 23);
             this.btnBaja.TabIndex = 5;
+            this.btnBaja.Tag = "btnBaja";
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
@@ -85,6 +99,7 @@ namespace UI
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 4;
+            this.btnModificar.Tag = "btnModificar";
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -95,6 +110,7 @@ namespace UI
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Tag = "btnBuscar";
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -105,6 +121,7 @@ namespace UI
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(169, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.Tag = "txtNombre";
             // 
             // label1
             // 
@@ -113,6 +130,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "Nombre";
             this.label1.Text = "Nombre:";
             // 
             // grillaClientes
@@ -123,18 +141,9 @@ namespace UI
             this.grillaClientes.ReadOnly = true;
             this.grillaClientes.Size = new System.Drawing.Size(551, 347);
             this.grillaClientes.TabIndex = 0;
+            this.grillaClientes.Tag = "grillaClientes";
             this.grillaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaClientes_CellContentClick);
             this.grillaClientes.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaClientes_CellEndEdit);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(342, 25);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(112, 23);
-            this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar Lista";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // frmClientes
             // 

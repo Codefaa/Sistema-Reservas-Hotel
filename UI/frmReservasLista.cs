@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BE;
+using BLL;
+using System;
 using System.Windows.Forms;
 
-using BE;
-using BLL;
+using Abstraccion;
+using Servicios;
 
 namespace UI
 {
-    public partial class frmReservasLista : Form
+    public partial class frmReservasLista : Form, IObservador
     {
         public frmReservasLista()
         {
@@ -33,16 +28,44 @@ namespace UI
             grillaReservas.DataSource = bllReservas.LeerReservas();
         }
 
+
+
+
+        #region Idioma
+
+        Sesion sesion = Sesion.Instance;
         private void frmReservasLista_Load(object sender, EventArgs e)
         {
             MostrarGrillaReservas();
+
+            sesion.RegistrarObservador(this);
+            sesion.ActualizarObservadores(Sesion.Idioma);
         }
+
+        public void Actualizar(IIdioma idiomaObservado)
+        {
+            foreach (Control item in this.Controls)
+            {
+                item.Text = idiomaObservado.BuscarTraduccion(item.Tag.ToString());
+
+                if (groupBox1.Controls.Count > 0)
+                {
+                    foreach (Control item2 in groupBox1.Controls)
+                    {
+                        item2.Text = idiomaObservado.BuscarTraduccion(item2.Tag.ToString());
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                if(reserva.FechaEntrada < dateFechaSalida.Value)
+                if (reserva.FechaEntrada < dateFechaSalida.Value)
                 {
                     reserva.FechaSalida = dateFechaSalida.Value;
                     reserva.PrecioFinal = bllReservas.CalcularPrecioFinal(reserva);
@@ -59,7 +82,7 @@ namespace UI
                     MessageBox.Show("La fecha de salida no puede ser menor a la fecha de entrada");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -82,7 +105,7 @@ namespace UI
         {
             try
             {
-                if(reserva != null)
+                if (reserva != null)
                 {
                     BLLHabitacion bllHabitacion = new BLLHabitacion();
                     bllHabitacion.CambiarEstado(reserva.unaHabitacion);
@@ -97,7 +120,7 @@ namespace UI
                     MessageBox.Show("Seleccione una reserva");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

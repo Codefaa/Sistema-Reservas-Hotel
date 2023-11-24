@@ -87,7 +87,7 @@ namespace UI
             // familiasYPatentesToolStripMenuItem
             // 
             this.familiasYPatentesToolStripMenuItem.Name = "familiasYPatentesToolStripMenuItem";
-            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.familiasYPatentesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.familiasYPatentesToolStripMenuItem.Tag = "FamiliasYPatentes";
             this.familiasYPatentesToolStripMenuItem.Text = "Familias y patentes";
             this.familiasYPatentesToolStripMenuItem.Click += new System.EventHandler(this.familiasYPatentesToolStripMenuItem_Click);
@@ -95,7 +95,7 @@ namespace UI
             // asignarRolesToolStripMenuItem
             // 
             this.asignarRolesToolStripMenuItem.Name = "asignarRolesToolStripMenuItem";
-            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarRolesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.asignarRolesToolStripMenuItem.Tag = "AsignarRoles";
             this.asignarRolesToolStripMenuItem.Text = "Asignar roles";
             this.asignarRolesToolStripMenuItem.Click += new System.EventHandler(this.asignarRolesToolStripMenuItem_Click);
@@ -112,7 +112,7 @@ namespace UI
             // controlDeCambiosToolStripMenuItem
             // 
             this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
-            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.controlDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.controlDeCambiosToolStripMenuItem.Tag = "menuControlDeCambios";
             this.controlDeCambiosToolStripMenuItem.Text = "Control de cambios";
             this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
@@ -161,12 +161,14 @@ namespace UI
             this.reportesToolStripMenuItem});
             this.hotelToolStripMenuItem.Name = "hotelToolStripMenuItem";
             this.hotelToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.hotelToolStripMenuItem.Tag = "Hotel";
             this.hotelToolStripMenuItem.Text = "Hotel";
             // 
             // recepcionToolStripMenuItem
             // 
             this.recepcionToolStripMenuItem.Name = "recepcionToolStripMenuItem";
             this.recepcionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionToolStripMenuItem.Tag = "Recepcion";
             this.recepcionToolStripMenuItem.Text = "Recepcion";
             this.recepcionToolStripMenuItem.Click += new System.EventHandler(this.recepcionToolStripMenuItem_Click);
             // 
@@ -174,6 +176,7 @@ namespace UI
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Tag = "Clientes";
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -181,6 +184,7 @@ namespace UI
             // 
             this.habitacionesToolStripMenuItem.Name = "habitacionesToolStripMenuItem";
             this.habitacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.habitacionesToolStripMenuItem.Tag = "Habitaciones";
             this.habitacionesToolStripMenuItem.Text = "Habitaciones";
             this.habitacionesToolStripMenuItem.Click += new System.EventHandler(this.habitacionesToolStripMenuItem_Click);
             // 
@@ -188,6 +192,7 @@ namespace UI
             // 
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reservasToolStripMenuItem.Tag = "Reservas";
             this.reservasToolStripMenuItem.Text = "Reservas";
             this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
             // 
@@ -195,6 +200,7 @@ namespace UI
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportesToolStripMenuItem.Tag = "Reportes";
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
